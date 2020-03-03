@@ -63,7 +63,7 @@ List of features ready and TODOs for future development
 
 
 To-do list:
-* make a data base 
+* make a database 
 
 ## Status
 Project is: 
