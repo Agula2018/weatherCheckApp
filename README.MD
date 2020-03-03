@@ -24,7 +24,8 @@ This app applies to Airly API version 2.0.
 
 ## Code Examples
 Show examples of usage:
-`{
+```
+{
 
     @GET("v2/installations/nearest")
     Call<LocatedMeasurement> nearestInstallations(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
@@ -53,7 +54,8 @@ Show examples of usage:
     Call<LocatedMeasurement> interpolatedMeasurements(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
                                                @Query("lat") double latitude,
                                                @Query("lng") double longitude);
-}`
+}
+```
 
 ## Features
 List of features ready and TODOs for future development
