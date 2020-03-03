@@ -24,7 +24,6 @@ This app applies to API version 2.0.
 
 ## Code Examples
 Examples of usage:
-
 `OkHttpClient httpClient = new OkHttpClient();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://airapi.airly.eu/")
@@ -32,12 +31,12 @@ Examples of usage:
                 .client(httpClient)
                 .build();
         return retrofit.create(AirlyService.class);`
-
-## Features
+##Features
 List of features ready and TODOs for future development
 * Awesome feature 1
 * Awesome feature 2
 * Awesome feature 3
+* Awesome feature 4
 
 To-do list:
 * Wow improvement to be done 1
