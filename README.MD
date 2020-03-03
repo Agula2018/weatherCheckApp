@@ -24,16 +24,8 @@ This app applies to API version 2.0.
 
 ## Code Examples
 Show examples of usage:
-`
-OkHttpClient httpClient = new OkHttpClient();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://airapi.airly.eu/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(httpClient)
-                .build();
-        return retrofit.create(AirlyService.class);`
-        
-        
+`put-your-code-here`
+
 ## Features
 List of features ready and TODOs for future development
 * Awesome feature 1
