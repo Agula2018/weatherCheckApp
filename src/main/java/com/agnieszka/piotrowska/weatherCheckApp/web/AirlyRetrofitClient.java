@@ -10,8 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AirlyRetrofitClient {
 
     public AirlyService createAirlyApi() {
-        OkHttpClient httpClient = new OkHttpClient();
 
+        OkHttpClient httpClient = new OkHttpClient();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://airapi.airly.eu/")
                 .addConverterFactory(GsonConverterFactory.create())

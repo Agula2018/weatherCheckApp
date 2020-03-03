@@ -12,4 +12,5 @@ public class AirlyManager {
     public AirlyManager(AirlyRetrofitClient airlyRetrofitClient) {
         this.airlyRetrofitClient = airlyRetrofitClient;
     }
+
 }
