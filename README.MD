@@ -26,32 +26,14 @@ This app applies to API version 2.0.
 Examples of usage:
 
 `
-@GET("v2/installations/nearest")
-    Call<Installation> nearestInstallations(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
-                                            @Query("lat") double latitude,
-                                            @Query("lng") double longitude,
-                                            @Query("maxDistanceKM") double maxDistanceKm,
-                                            @Query("maxResults") int maxResults);
+OkHttpClient httpClient = new OkHttpClient();
 
-
-    @GET("v2/installations/{installationId}")
-    Call<Installation> installation(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
-                                    @Path("installationId") int installationId);
-
-    @GET("v2/measurements/installation")
-    Call<Measurement> measurements(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
-                                   @Query("installationId") int installationId);
-
-    @GET("v2/measurements/nearest")
-    Call<Measurement> nearestMeasurements(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
-                                          @Query("lat") double latitude,
-                                          @Query("lng") double longitude,
-                                          @Query("maxDistanceKM") double maxDistanceKm);
-
-    @GET("v2/measurements/point")
-    Call<Measurement> interpolatedMeasurements(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
-                                               @Query("lat") double latitude,
-                                               @Query("lng") double longitude);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://airapi.airly.eu/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(httpClient)
+                .build();
+        return retrofit.create(AirlyService.class);
 
 `
 
