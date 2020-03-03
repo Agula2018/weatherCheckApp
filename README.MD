@@ -1,5 +1,5 @@
 # weatherCheckApp - simple app
-> Here goes your awesome project description!
+> A terminal-based client of Airly API (https://map.airly.eu/)!
 
 ## Table of contents
 * [General info](#general-info)
@@ -12,7 +12,7 @@
 * [Contact](#contact)
 
 ## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+This app applies to API version 2.0.
 
 ## 
 ![Example screenshot](./screenshot.png)
@@ -22,12 +22,36 @@ Add more general information about project. What the purpose of the project is? 
 * Tech 2 - version 2.0
 * Tech 3 - version 3.0
 
-## Setup
-Describe how to install / setup your local environement / add link to demo version.
-
 ## Code Examples
 Show examples of usage:
-`put-your-code-here`
+`@GET("v2/installations/nearest")
+    Call<Installation> nearestInstallations(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
+                                            @Query("lat") double latitude,
+                                            @Query("lng") double longitude,
+                                            @Query("maxDistanceKM") double maxDistanceKm,
+                                            @Query("maxResults") int maxResults);
+
+
+    @GET("v2/installations/{installationId}")
+    Call<Installation> installation(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
+                                    @Path("installationId") int installationId);
+
+    @GET("v2/measurements/installation")
+    Call<Measurement> measurements(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
+                                   @Query("installationId") int installationId);
+
+    @GET("v2/measurements/nearest")
+    Call<Measurement> nearestMeasurements(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
+                                          @Query("lat") double latitude,
+                                          @Query("lng") double longitude,
+                                          @Query("maxDistanceKM") double maxDistanceKm);
+
+    @GET("v2/measurements/point")
+    Call<Measurement> interpolatedMeasurements(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
+                                               @Query("lat") double latitude,
+                                               @Query("lng") double longitude);
+
+`
 
 ## Features
 List of features ready and TODOs for future development
@@ -40,7 +64,7 @@ To-do list:
 * Wow improvement to be done 2
 
 ## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
+Project is: _in progress_ :)
 
 ## Inspiration
 Add here credits. Project inspired by..., based on...
