@@ -23,8 +23,10 @@ This app applies to API version 2.0.
 * Tech 3 - version 3.0
 
 ## Code Examples
-Show examples of usage:
-`@GET("v2/installations/nearest")
+Examples of usage:
+
+`
+@GET("v2/installations/nearest")
     Call<Installation> nearestInstallations(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
                                             @Query("lat") double latitude,
                                             @Query("lng") double longitude,
