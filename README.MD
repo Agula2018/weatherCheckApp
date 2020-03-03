@@ -26,8 +26,7 @@ This app applies to API version 2.0.
 Examples of usage:
 
 `
-OkHttpClient httpClient = new OkHttpClient();
-
+        OkHttpClient httpClient = new OkHttpClient();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://airapi.airly.eu/")
                 .addConverterFactory(GsonConverterFactory.create())
