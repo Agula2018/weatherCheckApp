@@ -1,23 +1,24 @@
 package com.agnieszka.piotrowska.weatherCheckApp.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@JsonIgnoreProperties
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties
 @Getter
 @Setter
-public class Installation {
+public class Address {
 
-    private Integer id;
-    private Double latitude;
-    private Double longitude;
-    private Address address;
-    private Double elevation;
-    private Boolean airly;
-    private Sponsor sponsor;
+
+        private String country;
+        private String city;
+        private String street;
+        private String number;
+        private String displayAddress1;
+        private String displayAddress2;
+
+
 }

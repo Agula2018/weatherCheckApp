@@ -8,16 +8,13 @@ import lombok.Setter;
 import java.util.List;
 
 @JsonIgnoreProperties
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-public class SingleMeasurement {
+public class MeasurementHistory {
 
-    private String fromDateTime;
-    private String tillDateTime;
-    private List<Value> values;
-    private List <Index> indexes;
-    private List <Standards> standards;
-
+    private SingleMeasurement current;
+    private List <SingleMeasurement> history;
+    private List <SingleMeasurement> forecast;
 }

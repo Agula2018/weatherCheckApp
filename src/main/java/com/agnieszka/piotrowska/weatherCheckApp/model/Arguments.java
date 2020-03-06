@@ -5,19 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.List;
 
 @JsonIgnoreProperties
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-public class SingleMeasurement {
+public class Arguments {
 
-    private String fromDateTime;
-    private String tillDateTime;
-    private List<Value> values;
-    private List <Index> indexes;
-    private List <Standards> standards;
-
+    public String apiKey;
+    public Integer installationId;
+    public Double lat;
+    public Double lng;
+    public Double maxDistanceKm;
+    public Integer maxResults;
 }

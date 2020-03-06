@@ -2,18 +2,16 @@ package com.agnieszka.piotrowska.weatherCheckApp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@JsonIgnoreProperties
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-public class LocatedMeasurement {
+@JsonIgnoreProperties
 
-    private MeasurementHistory measurement;
-    private Installation installation;
+public class Value {
 
+    private String name;
+    private Double value;
 }

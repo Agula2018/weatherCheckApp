@@ -5,19 +5,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.List;
 
 @JsonIgnoreProperties
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class SingleMeasurement {
+public class Standards {
 
-    private String fromDateTime;
-    private String tillDateTime;
-    private List<Value> values;
-    private List <Index> indexes;
-    private List <Standards> standards;
+    private String name;
+    private String pollutant;
+    private Double limit;
+    private Double percent;
 
 }
