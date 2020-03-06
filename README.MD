@@ -26,33 +26,8 @@ Show examples of usage:
 ```
 {
 
-    @GET("v2/installations/nearest")
-    Call<LocatedMeasurement> nearestInstallations(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
-                                            @Query("lat") double latitude,
-                                            @Query("lng") double longitude,
-                                            @Query("maxDistanceKM") double maxDistanceKm,
-                                            @Query("maxResults") int maxResults);
+COMMING SOON
 
-    //Returns single Installation given by the installationId path parameter
-    @GET("v2/installations/{installationId}")
-    Call<LocatedMeasurement> installation(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
-                                    @Path("installationId") int installationId);
-
-    //Measurements
-    @GET("v2/measurements/installation")
-    Call<LocatedMeasurement> measurements(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
-                                   @Query("installationId") int installationId);
-
-    @GET("v2/measurements/nearest")
-    Call<LocatedMeasurement> nearestMeasurements(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
-                                          @Query("lat") double latitude,
-                                          @Query("lng") double longitude,
-                                          @Query("maxDistanceKM") double maxDistanceKm);
-
-    @GET("v2/measurements/point")
-    Call<LocatedMeasurement> interpolatedMeasurements(@Header("2zdLEMfQrhyHB0q8fL4Gly3uAOt9Lutx") String apiKey,
-                                               @Query("lat") double latitude,
-                                               @Query("lng") double longitude);
 }
 ```
 
