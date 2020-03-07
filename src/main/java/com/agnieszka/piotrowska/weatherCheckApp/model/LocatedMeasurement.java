@@ -14,6 +14,6 @@ import lombok.Setter;
 public class LocatedMeasurement {
 
     private MeasurementHistory measurement;
-    private Installation installation;
+    private Installations installations;
 
 }
