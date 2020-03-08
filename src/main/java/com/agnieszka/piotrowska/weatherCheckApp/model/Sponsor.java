@@ -1,18 +1,12 @@
 package com.agnieszka.piotrowska.weatherCheckApp.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @JsonIgnoreProperties
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
+@Data
 public class Sponsor {
 
-    private Integer sponsorId;
+    private Long sponsorId;
     private String name;
     private String description;
     private String logo;

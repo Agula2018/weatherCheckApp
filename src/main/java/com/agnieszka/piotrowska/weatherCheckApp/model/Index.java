@@ -1,14 +1,9 @@
 package com.agnieszka.piotrowska.weatherCheckApp.model;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-
+@JsonIgnoreProperties
+@Data
 public class Index {
 
     private String name;

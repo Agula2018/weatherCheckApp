@@ -6,7 +6,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 @Service
-public class Parsing implements ParsingService {
+public class Parsing extends ParsingService {
 
     @Autowired
     private RestTemplate restTemplate;
