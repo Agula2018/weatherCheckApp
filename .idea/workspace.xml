@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15617ee7-f81f-4f78-9f93-c8b5e785306a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/controller/AirlyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/controller/AirlyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +125,7 @@
       <workItem from="1583584401419" duration="6133000" />
       <workItem from="1583596158281" duration="15747000" />
       <workItem from="1583675388372" duration="5198000" />
-      <workItem from="1583760782220" duration="746000" />
+      <workItem from="1583760782220" duration="1009000" />
     </task>
     <servers />
   </component>
