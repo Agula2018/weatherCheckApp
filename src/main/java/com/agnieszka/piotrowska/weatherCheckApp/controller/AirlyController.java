@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("airapi.airly.eu/v2/")
+@RequestMapping("v2/installations")
 public class AirlyController {
 
     private final ParsingService parsingService;
