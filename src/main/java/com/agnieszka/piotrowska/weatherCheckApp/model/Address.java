@@ -6,13 +6,11 @@ import lombok.*;
 @Data
 public class Address {
 
-
         private String country;
         private String city;
         private String street;
         private String number;
         private String displayAddress1;
         private String displayAddress2;
-
 
 }

@@ -6,37 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("v2/installations")
-public class AirlyController {
+@RequestMapping("v2/measurements/")
+public class MeasurementsController {
 
     private final ParsingService parsingService;
 
     @Autowired
-    public AirlyController(ParsingService parsingService) {
+    public MeasurementsController(ParsingService parsingService) {
         this.parsingService = parsingService;
     }
 
 
-    @GetMapping("installations/nearest/")
-    public String handleNearestInstallation(@RequestParam("lat") double lat,
-                                            @RequestParam("lng") double lng,
-                                            @RequestParam("maxDistanceKM") double maxDistanceKM,
-                                            @RequestParam("maxResults") int maxResults) throws JsonParseException {
-        return "ok";
-    }
-
-    @GetMapping("installations/{installationId}")
-    public String handleInstallationId(@PathVariable("installationId") int installationId) throws JsonParseException {
-        return "ok";
-    }
-
-    @GetMapping("measurements/installation")
+    @GetMapping("installation")
     public String detailedMeasurement(@RequestParam("indexType") String indexType,
                                       @RequestParam("installationId") int installationId) throws JsonParseException {
         return "ok";
     }
 
-    @GetMapping("measurements/nearest")
+    @GetMapping("nearest")
     public String detailedMeasurementNearest(@RequestParam("indexType") String indexType,
                                              @RequestParam("lat") double lat,
                                              @RequestParam("lng") double lng,
@@ -44,7 +31,7 @@ public class AirlyController {
         return "ok";
     }
 
-    @GetMapping("measurements/point")
+    @GetMapping("point")
     public String detailedMeasurementPoint(@RequestParam("indexType") String indexType,
                                            @RequestParam("lat") double lat,
                                            @RequestParam("lng") double lng) throws JsonParseException {
