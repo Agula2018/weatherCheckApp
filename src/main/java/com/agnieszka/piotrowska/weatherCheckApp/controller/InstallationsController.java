@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("v2/installations")
+@RequestMapping("v2/installations/")
 public class InstallationsController {
 
     private final ParsingService parsingService;
@@ -16,7 +16,7 @@ public class InstallationsController {
         this.parsingService = parsingService;
     }
 
-    @GetMapping("nearest")
+    @GetMapping("nearest/")
     public String handleNearestInstallation(@RequestParam("lat") double lat,
                                             @RequestParam("lng") double lng,
                                             @RequestParam("maxDistanceKM") double maxDistanceKM,
@@ -24,7 +24,7 @@ public class InstallationsController {
         return "ok";
     }
 
-    @GetMapping("{installationId}")
+    @GetMapping("{installationId}/")
     public String handleInstallationId(@PathVariable("installationId") int installationId) throws JsonParseException {
         return "ok";
     }

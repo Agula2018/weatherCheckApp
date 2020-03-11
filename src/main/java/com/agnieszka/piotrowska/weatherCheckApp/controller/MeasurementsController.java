@@ -17,13 +17,13 @@ public class MeasurementsController {
     }
 
 
-    @GetMapping("installation")
+    @GetMapping("installation/")
     public String detailedMeasurement(@RequestParam("indexType") String indexType,
                                       @RequestParam("installationId") int installationId) throws JsonParseException {
         return "ok";
     }
 
-    @GetMapping("nearest")
+    @GetMapping("nearest/")
     public String detailedMeasurementNearest(@RequestParam("indexType") String indexType,
                                              @RequestParam("lat") double lat,
                                              @RequestParam("lng") double lng,
@@ -31,7 +31,7 @@ public class MeasurementsController {
         return "ok";
     }
 
-    @GetMapping("point")
+    @GetMapping("point/")
     public String detailedMeasurementPoint(@RequestParam("indexType") String indexType,
                                            @RequestParam("lat") double lat,
                                            @RequestParam("lng") double lng) throws JsonParseException {
