@@ -43,7 +43,6 @@ class WeatherCheckAppApplicationTests {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
     }
-
     @Test
     void shouldReturnDetailedMeasurement() throws Exception{
         when(measurementsController.detailedMeasurement("AIRLY_CAQI",204)).thenReturn("ok");
@@ -67,6 +66,5 @@ class WeatherCheckAppApplicationTests {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
     }
-
 }
 

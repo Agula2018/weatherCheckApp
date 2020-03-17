@@ -8,10 +8,11 @@ import lombok.*;
 public class Installations {
 
     private Long id;
-    private Double latitude;
-    private Double longitude;
+    private Location location;
     private Address address;
     private Double elevation;
     private Boolean airly;
     private Sponsor sponsor;
+
+
 }

@@ -1,6 +1,6 @@
 package com.agnieszka.piotrowska.weatherCheckApp.service;
 
-public class ParsingService {
+public class AirlyParsing {
 
     /**
      * Service to parse the Json response and convert it to
@@ -10,5 +10,4 @@ public class ParsingService {
     Object parse(String url) {
         return null;
     }
-
 }

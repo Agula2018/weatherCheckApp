@@ -1,6 +1,6 @@
 package com.agnieszka.piotrowska.weatherCheckApp.controller;
 
-import com.agnieszka.piotrowska.weatherCheckApp.service.ParsingService;
+import com.agnieszka.piotrowska.weatherCheckApp.service.AirlyParsing;
 import com.google.gson.JsonParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("v2/measurements/")
 public class MeasurementsController {
 
-    private final ParsingService parsingService;
+    private final AirlyParsing airlyParsing;
 
     @Autowired
-    public MeasurementsController(ParsingService parsingService) {
-        this.parsingService = parsingService;
+    public MeasurementsController(AirlyParsing airlyParsing) {
+        this.airlyParsing = airlyParsing;
     }
 
 

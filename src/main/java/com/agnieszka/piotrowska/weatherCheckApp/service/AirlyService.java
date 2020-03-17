@@ -4,13 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-
 @Service
-public class Parsing extends ParsingService {
+public class AirlyService extends AirlyParsing {
+
+    public RestTemplate restTemplate;
 
     @Autowired
-    private RestTemplate restTemplate;
-
+    public RestTemplate getRestTemplate() {
+        return restTemplate;
+    }
     @Override
     public Object parse(String url) {
         return restTemplate.getForObject(url, Object.class);
