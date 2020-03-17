@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="weatherCheckApp" target="9" />
+      <module name="weatherCheckApp" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
