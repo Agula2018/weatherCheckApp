@@ -1,5 +1,8 @@
 package com.agnieszka.piotrowska.weatherCheckApp.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class AirlyParsing {
 
     /**
@@ -7,7 +10,7 @@ public class AirlyParsing {
      * the desired model class
      */
 
-    Object parse(String url) {
+    public Object parse(String url) {
         return null;
     }
 }

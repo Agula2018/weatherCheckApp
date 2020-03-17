@@ -2,20 +2,86 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15617ee7-f81f-4f78-9f93-c8b5e785306a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/service/AirlyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_10_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_200.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_16.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_persistence_jakarta_persistence_api_2_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_transaction_jakarta_transaction_api_1_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_ws_rs_jakarta_ws_rs_api_2_1_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_hk2_class_model_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_hk2_external_aopalliance_repackaged_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_hk2_external_jakarta_inject_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_hk2_hk2_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_hk2_hk2_api_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_hk2_hk2_core_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_hk2_hk2_locator_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_hk2_hk2_runlevel_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_hk2_hk2_utils_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_hk2_osgi_resource_locator_1_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_hk2_spring_bridge_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jersey_containers_jersey_container_servlet_2_29_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jersey_containers_jersey_container_servlet_core_2_29_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jersey_core_jersey_client_2_29_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jersey_core_jersey_common_2_29_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jersey_core_jersey_server_2_29_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jersey_ext_jersey_bean_validation_2_29_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jersey_ext_jersey_entity_filtering_2_29_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jersey_ext_jersey_spring5_2_29_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jersey_inject_jersey_hk2_2_29_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jersey_media_jersey_media_jaxb_2_29_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jersey_media_jersey_media_json_jackson_2_29_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_12_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_16_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_24_0_GA.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_1_1_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_19_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_analysis_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_commons_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_tree_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_util_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jdbc_2_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jersey_2_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jdbc_1_1_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_relational_1_1_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_2_4_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_4_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_2_4_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_4_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/WeatherCheckAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/WeatherCheckAppApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/controller/InstallationsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/controller/InstallationsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/controller/MeasurementsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/controller/MeasurementsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/model/Installations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/model/Installations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/service/Parsing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/service/ParsingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/service/AirlyParsing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/service/AirlyParsing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agnieszka/piotrowska/weatherCheckApp/service/AirlyParsing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/agnieszka/piotrowska/weatherCheckApp/WeatherCheckAppApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/agnieszka/piotrowska/weatherCheckApp/WeatherCheckAppApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/weatherCheckApp.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/agnieszka/piotrowska/weatherCheckApp/model/Installations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/agnieszka/piotrowska/weatherCheckApp/model/Installations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/agnieszka/piotrowska/weatherCheckApp/service/Parsing.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/agnieszka/piotrowska/weatherCheckApp/service/ParsingService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/agnieszka/piotrowska/weatherCheckApp/WeatherCheckAppApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/agnieszka/piotrowska/weatherCheckApp/WeatherCheckAppApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weatherCheckApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/weatherCheckApp.iml" afterDir="false" />
     </list>
@@ -23,6 +89,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="weatherCheckApp" />
@@ -57,6 +126,9 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectId" id="1YQjH2Z82s5kaEAgclg2jIRbaz0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -73,12 +145,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="JUnit.WeatherCheckAppApplicationTests">
+  <component name="RunManager" selected="JUnit.WeatherCheckAppApplicationTests.shouldReturnNearestInstallation">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.agnieszka.piotrowska.weatherCheckApp.unused.Application" />
       <module name="weatherCheckApp" />
@@ -105,6 +177,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WeatherCheckAppApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.agnieszka.piotrowska.weatherCheckApp.WeatherCheckAppApplication" />
+      <module name="weatherCheckApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.agnieszka.piotrowska.weatherCheckApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WeatherCheckAppApplicationTests (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="weatherCheckApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.agnieszka.piotrowska.weatherCheckApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.agnieszka.piotrowska.weatherCheckApp" />
+      <option name="MAIN_CLASS_NAME" value="com.agnieszka.piotrowska.weatherCheckApp.WeatherCheckAppApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WeatherCheckAppApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="weatherCheckApp" />
       <extension name="coverage">
@@ -120,6 +220,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WeatherCheckAppApplicationTests.shouldReturnNearestInstallation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="weatherCheckApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.agnieszka.piotrowska.weatherCheckApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.agnieszka.piotrowska.weatherCheckApp" />
+      <option name="MAIN_CLASS_NAME" value="com.agnieszka.piotrowska.weatherCheckApp.WeatherCheckAppApplicationTests" />
+      <option name="METHOD_NAME" value="shouldReturnNearestInstallation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WeatherCheckAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="weatherCheckApp" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.agnieszka.piotrowska.weatherCheckApp.WeatherCheckAppApplication" />
@@ -129,12 +245,25 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WeatherCheckAppApplicationTests.shouldReturnNearestInstallation" />
+        <item itemvalue="Application.WeatherCheckAppApplication" />
+        <item itemvalue="JUnit.WeatherCheckAppApplicationTests (1)" />
         <item itemvalue="JUnit.WeatherCheckAppApplicationTests" />
-        <item itemvalue="Application.Application" />
-        <item itemvalue="Application.Application" />
         <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -189,9 +318,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="281" key="#Project_Structure" timestamp="1583239083550">
-      <screen x="0" y="23" width="1680" height="927" />
+    <state x="0" y="292" key="#Project_Structure" timestamp="1584465422146">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="0" y="292" key="#Project_Structure/0.0.1680.1050@0.0.1680.1050" timestamp="1584465422146" />
     <state x="0" y="281" key="#Project_Structure/0.23.1680.927@0.23.1680.927" timestamp="1583239083550" />
     <state x="1214" y="217" key="#com.intellij.ide.util.MemberChooser" timestamp="1584448899675">
       <screen x="0" y="23" width="1680" height="938" />
@@ -214,10 +344,10 @@
       <screen x="0" y="23" width="1680" height="938" />
     </state>
     <state x="931" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.938@0.23.1680.938" timestamp="1583613268145" />
-    <state width="1481" height="350" key="GridCell.Tab.0.bottom" timestamp="1584463527827">
-      <screen x="0" y="23" width="1680" height="938" />
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1584468230351">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="296" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1583610993284" />
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1584468230351" />
     <state width="1412" height="230" key="GridCell.Tab.0.bottom/0.23.1680.930@0.23.1680.930" timestamp="1583140668884" />
     <state width="1358" height="405" key="GridCell.Tab.0.bottom/0.23.1680.931@0.23.1680.931" timestamp="1582883059034" />
     <state width="1413" height="232" key="GridCell.Tab.0.bottom/0.23.1680.934@0.23.1680.934" timestamp="1583253322383" />
@@ -225,10 +355,10 @@
     <state width="1481" height="350" key="GridCell.Tab.0.bottom/0.23.1680.938@0.23.1680.938" timestamp="1584463527827" />
     <state width="1413" height="329" key="GridCell.Tab.0.bottom/0.23.1680.941@0.23.1680.941" timestamp="1583268308896" />
     <state width="1413" height="166" key="GridCell.Tab.0.bottom/0.23.1680.944@0.23.1680.944" timestamp="1583254757261" />
-    <state width="1481" height="350" key="GridCell.Tab.0.center" timestamp="1584463527826">
-      <screen x="0" y="23" width="1680" height="938" />
+    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1584468230350">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="296" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1583610993283" />
+    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1584468230350" />
     <state width="1412" height="230" key="GridCell.Tab.0.center/0.23.1680.930@0.23.1680.930" timestamp="1583140668883" />
     <state width="1358" height="405" key="GridCell.Tab.0.center/0.23.1680.931@0.23.1680.931" timestamp="1582883059033" />
     <state width="1413" height="232" key="GridCell.Tab.0.center/0.23.1680.934@0.23.1680.934" timestamp="1583253322383" />
@@ -236,10 +366,10 @@
     <state width="1481" height="350" key="GridCell.Tab.0.center/0.23.1680.938@0.23.1680.938" timestamp="1584463527826" />
     <state width="1413" height="329" key="GridCell.Tab.0.center/0.23.1680.941@0.23.1680.941" timestamp="1583268308896" />
     <state width="1413" height="166" key="GridCell.Tab.0.center/0.23.1680.944@0.23.1680.944" timestamp="1583254757261" />
-    <state width="1481" height="350" key="GridCell.Tab.0.left" timestamp="1584463527825">
-      <screen x="0" y="23" width="1680" height="938" />
+    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1584468230349">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="296" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1583610993283" />
+    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1584468230349" />
     <state width="1412" height="230" key="GridCell.Tab.0.left/0.23.1680.930@0.23.1680.930" timestamp="1583140668883" />
     <state width="1358" height="405" key="GridCell.Tab.0.left/0.23.1680.931@0.23.1680.931" timestamp="1582883059033" />
     <state width="1413" height="232" key="GridCell.Tab.0.left/0.23.1680.934@0.23.1680.934" timestamp="1583253322382" />
@@ -247,10 +377,10 @@
     <state width="1481" height="350" key="GridCell.Tab.0.left/0.23.1680.938@0.23.1680.938" timestamp="1584463527825" />
     <state width="1413" height="329" key="GridCell.Tab.0.left/0.23.1680.941@0.23.1680.941" timestamp="1583268308895" />
     <state width="1413" height="166" key="GridCell.Tab.0.left/0.23.1680.944@0.23.1680.944" timestamp="1583254757260" />
-    <state width="1481" height="350" key="GridCell.Tab.0.right" timestamp="1584463527827">
-      <screen x="0" y="23" width="1680" height="938" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1584468230351">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="296" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1583610993284" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1584468230351" />
     <state width="1412" height="230" key="GridCell.Tab.0.right/0.23.1680.930@0.23.1680.930" timestamp="1583140668884" />
     <state width="1358" height="405" key="GridCell.Tab.0.right/0.23.1680.931@0.23.1680.931" timestamp="1582883059033" />
     <state width="1413" height="232" key="GridCell.Tab.0.right/0.23.1680.934@0.23.1680.934" timestamp="1583253322383" />
@@ -294,9 +424,14 @@
     <state width="1481" height="350" key="GridCell.Tab.1.right/0.23.1680.938@0.23.1680.938" timestamp="1584463145484" />
     <state width="1413" height="329" key="GridCell.Tab.1.right/0.23.1680.941@0.23.1680.941" timestamp="1583267791850" />
     <state width="1413" height="166" key="GridCell.Tab.1.right/0.23.1680.944@0.23.1680.944" timestamp="1583254757262" />
-    <state x="53" y="23" width="1304" height="837" key="SettingsEditor" timestamp="1583592748858">
-      <screen x="0" y="23" width="1680" height="938" />
+    <state x="378" y="187" key="Maven.ArtifactSearchDialog" timestamp="1584465569450">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="378" y="187" key="Maven.ArtifactSearchDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1584465569450" />
+    <state x="53" y="0" width="1304" height="837" key="SettingsEditor" timestamp="1584465407473">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="53" y="0" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1584465407473" />
     <state x="383" y="116" key="SettingsEditor/0.23.1680.930@0.23.1680.930" timestamp="1583093653014" />
     <state x="53" y="23" width="1304" height="837" key="SettingsEditor/0.23.1680.938@0.23.1680.938" timestamp="1583592748858" />
     <state x="159" y="123" width="1379" height="738" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1583612108505">
@@ -316,9 +451,10 @@
       <screen x="0" y="23" width="1680" height="938" />
     </state>
     <state x="594" y="105" key="refactoring.ChangeSignatureDialog/0.23.1680.938@0.23.1680.938" timestamp="1583873428733" />
-    <state x="538" y="265" width="670" height="676" key="search.everywhere.popup" timestamp="1582997762638">
-      <screen x="0" y="23" width="1680" height="930" />
+    <state x="538" y="273" width="670" height="764" key="search.everywhere.popup" timestamp="1584465780250">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="538" y="273" width="670" height="764" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1584465780250" />
     <state x="538" y="265" width="670" height="676" key="search.everywhere.popup/0.23.1680.930@0.23.1680.930" timestamp="1582997762638" />
   </component>
   <component name="XDebuggerManager">
