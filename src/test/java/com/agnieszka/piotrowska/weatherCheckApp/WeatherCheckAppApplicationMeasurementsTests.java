@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(MeasurementsController.class)
-public class WeatherCheckAppApplicationTestsMeasurements {
+public class WeatherCheckAppApplicationMeasurementsTests {
 
     @MockBean
     AirlyParsing airlyParsing;

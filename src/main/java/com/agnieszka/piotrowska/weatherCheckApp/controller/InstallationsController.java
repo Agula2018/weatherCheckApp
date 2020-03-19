@@ -1,11 +1,9 @@
 package com.agnieszka.piotrowska.weatherCheckApp.controller;
 
-import com.agnieszka.piotrowska.weatherCheckApp.model.Installations;
 import com.agnieszka.piotrowska.weatherCheckApp.service.AirlyParsing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("v2/installations/")

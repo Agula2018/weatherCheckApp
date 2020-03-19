@@ -7,7 +7,7 @@ import lombok.*;
 @Data
 public class Arguments {
 
-    public Long installationId;
+    public Integer installationId;
     public Double lat;
     public Double lng;
     public Double maxDistanceKm;
