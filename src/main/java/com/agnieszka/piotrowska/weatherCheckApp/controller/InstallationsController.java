@@ -1,5 +1,6 @@
 package com.agnieszka.piotrowska.weatherCheckApp.controller;
 
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.service.AirlyParsing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;
@@ -21,7 +22,13 @@ public class InstallationsController {
                                             @RequestParam("lng") double lng,
                                             @RequestParam("maxDistanceKM") double maxDistanceKM,
                                             @RequestParam("maxResults") int maxResults) throws JsonParseException {
-        /* mock */airlyParsing.parse("");
+        NearestInstallationRequest req = NearestInstallationRequest.builder()
+                .latitude(lat)
+                .longitude(lng)
+                .maxDistanceKm(maxDistanceKM)
+                .maxResults(maxResults)
+                .build();
+
         return ("ok");
     }
 

@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
-public class AbstractExternalAPIService {
+public class AbstractExternalAPIService<T> {
 
     public RestTemplate restTemplate;
 
@@ -21,14 +21,14 @@ public class AbstractExternalAPIService {
     It's manually concatenating strings and it takes care of the URL encoding
      */
 
-    public <T> ResponseEntity get(UriComponentsBuilder builder) {
+    public ResponseEntity<T> get(String url, Class<T> resultClass) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
-        HttpEntity<String> entity = new HttpEntity<>(headers);
+        HttpEntity<T> entity = new HttpEntity<>(headers);
         return restTemplate.exchange(
-                builder.toUriString(),
+                url,
                 HttpMethod.GET,
                 entity,
-                String.class);
+                resultClass);
     }
 }
