@@ -8,10 +8,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class MeasurementPointService extends AbstractExternalAPIService <MeasurementPointResponse> {
+public class MeasurementPointService extends AbstractExternalAPIService<MeasurementPointRequest> {
 
     public MeasurementPointService(RestTemplate restTemplate) {
         super(restTemplate);
+    }
+
+    @Override
+    protected String getDomainPath() {
+        return null;
+    }
+
+    @Override
+    protected String buildURLParams(MeasurementPointRequest request) {
+        return null;
     }
 
     MeasurementPointDto getMeasurementPoint (MeasurementPointRequest request){

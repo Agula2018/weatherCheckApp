@@ -8,10 +8,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class MeasurementNearestService extends AbstractExternalAPIService <MeasurementNearestResponse> {
+public class MeasurementNearestService extends AbstractExternalAPIService<MeasurementNearestRequest> {
 
     public MeasurementNearestService(RestTemplate restTemplate) {
         super(restTemplate);
+    }
+
+    @Override
+    protected String getDomainPath() {
+        return null;
+    }
+
+    @Override
+    protected String buildURLParams(MeasurementNearestRequest request) {
+        return null;
     }
 
     MeasurementNearestDto getMeasurementNearest(MeasurementNearestRequest request){

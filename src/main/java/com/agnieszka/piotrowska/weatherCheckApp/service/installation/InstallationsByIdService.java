@@ -14,6 +14,16 @@ public class InstallationsByIdService extends AbstractExternalAPIService<Install
         super(restTemplate);
     }
 
+    @Override
+    protected String getDomainPath() {
+        return null;
+    }
+
+    @Override
+    protected String buildURLParams(InstallationByIdResponse request) {
+        return null;
+    }
+
     InstallationsByIdDto getInstallationById(InstallationsByIdRequest request){
         InstallationByIdResponse response = get("https://airapi.airly.eu/v2/installations",
                 InstallationByIdResponse.class).getBody();

@@ -8,10 +8,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class MeasurementForInstallationService extends AbstractExternalAPIService <MeasurementForInstallationResponse> {
+public class MeasurementForInstallationService extends AbstractExternalAPIService<MeasurementForInstallationRequest> {
 
     public MeasurementForInstallationService(RestTemplate restTemplate) {
         super(restTemplate);
+    }
+
+    @Override
+    protected String getDomainPath() {
+        return null;
+    }
+
+    @Override
+    protected String buildURLParams(MeasurementForInstallationRequest request) {
+        return null;
     }
 
     MeasurementForInstallationDto getMeasurementsForInstallation (MeasurementForInstallationRequest request){

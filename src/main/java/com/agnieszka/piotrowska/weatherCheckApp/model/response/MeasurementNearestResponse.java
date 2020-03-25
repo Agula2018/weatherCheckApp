@@ -1,6 +1,5 @@
 package com.agnieszka.piotrowska.weatherCheckApp.model.response;
 
-import com.agnieszka.piotrowska.weatherCheckApp.model.SingleMeasurement;
 import lombok.Data;
 import java.util.List;
 

@@ -1,12 +1,17 @@
 package com.agnieszka.piotrowska.weatherCheckApp.service;
 
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
+import com.agnieszka.piotrowska.weatherCheckApp.util.URLUtil;
+import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class AbstractExternalAPIService <T> {
+public abstract class AbstractExternalAPIService<T> {
+
+    private static final String BASE_URL = "https://airapi.airly.eu/v2/";
 
     public RestTemplate restTemplate;
 
@@ -15,7 +20,11 @@ public class AbstractExternalAPIService <T> {
         this.restTemplate = restTemplate;
     }
 
-    public ResponseEntity <T> get(String url, Class<T> resultClass) {
+    public <RESPONSE> RESPONSE getFromRequest(T requestObject, Class<RESPONSE> responseClass){
+        return get(getURLWithParams(requestObject), responseClass).getBody();
+    }
+
+    private <T> ResponseEntity <T> get(String url, Class<T> resultClass) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
         HttpEntity<T> entity = new HttpEntity<>(headers);
@@ -25,4 +34,20 @@ public class AbstractExternalAPIService <T> {
                 entity,
                 resultClass);
     }
+
+    protected String getBaseURL(){
+        return BASE_URL + getDomainPath();
+    }
+
+
+    protected String getURLWithParams(T request){
+        return getDomainPath() + buildURLParams(request);
+    }
+
+    protected abstract String getDomainPath();
+
+    protected  String buildURLParams(T request) {
+        return URLUtil.getURLParams(request);
+    }
+
 }
