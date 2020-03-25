@@ -1,5 +1,8 @@
 package com.agnieszka.piotrowska.weatherCheckApp.controller;
 
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementForInstallationRequest;
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementNearestRequest;
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementPointRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.service.AirlyParsing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;
@@ -21,8 +24,13 @@ public class MeasurementsController {
 
 
     @GetMapping("installation")
-    public String detailedMeasurement(@RequestParam("indexType") String indexType,
-                                      @RequestParam("installationId") int installationId) throws JsonParseException {
+    public String measurementsForInstallation(@RequestParam("indexType") String indexType,
+                                              @RequestParam("installationId") int installationId) throws JsonParseException {
+        MeasurementForInstallationRequest request = MeasurementForInstallationRequest.builder()
+                .indexType(indexType)
+                .installationId(installationId)
+                .build();
+
         return "ok";
     }
 
@@ -31,6 +39,12 @@ public class MeasurementsController {
                                              @RequestParam("lat") double lat,
                                              @RequestParam("lng") double lng,
                                              @RequestParam("maxDistanceKM") double maxDistanceKM) throws JsonParseException {
+        MeasurementNearestRequest request = MeasurementNearestRequest.builder()
+                .indexType(indexType)
+                .latitude(lat)
+                .longitude(lng)
+                .maxDistanceKM(maxDistanceKM)
+                .build();
         return "ok";
     }
 
@@ -38,6 +52,11 @@ public class MeasurementsController {
     public String detailedMeasurementPoint(@RequestParam("indexType") String indexType,
                                            @RequestParam("lat") double lat,
                                            @RequestParam("lng") double lng) throws JsonParseException {
+        MeasurementPointRequest request = MeasurementPointRequest.builder()
+                .indexType(indexType)
+                .latitude(lat)
+                .longitude(lng)
+                .build();
         return "ok";
     }
 }

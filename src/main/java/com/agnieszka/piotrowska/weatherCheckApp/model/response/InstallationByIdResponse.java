@@ -1,4 +1,4 @@
-package com.agnieszka.piotrowska.weatherCheckApp.model.dto;
+package com.agnieszka.piotrowska.weatherCheckApp.model.response;
 
 import com.agnieszka.piotrowska.weatherCheckApp.model.Address;
 import com.agnieszka.piotrowska.weatherCheckApp.model.Location;
@@ -6,7 +6,7 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.Sponsor;
 import lombok.Data;
 
 @Data
-public class NearestInstallationDto {
+public class InstallationByIdResponse {
     private Long id;
     private Location location;
     private Address address;

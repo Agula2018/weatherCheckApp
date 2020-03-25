@@ -1,5 +1,6 @@
 package com.agnieszka.piotrowska.weatherCheckApp.controller;
 
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.InstallationsByIdRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.service.AirlyParsing;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,11 @@ public class InstallationsController {
 
     @GetMapping("{installationId}")
     public String handleInstallationId(@PathVariable("installationId") int installationId) throws JsonParseException {
+
+        InstallationsByIdRequest request = InstallationsByIdRequest.builder()
+                .installationId(installationId)
+                .build();
+
         return "ok";
     }
 }

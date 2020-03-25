@@ -6,7 +6,8 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.Sponsor;
 import lombok.Data;
 
 @Data
-public class NearestInstallationDto {
+public class InstallationsByIdDto {
+
     private Long id;
     private Location location;
     private Address address;

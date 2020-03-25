@@ -5,13 +5,18 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallatio
 import com.agnieszka.piotrowska.weatherCheckApp.model.response.NearestInstallationResponse;
 import com.agnieszka.piotrowska.weatherCheckApp.service.AbstractExternalAPIService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 class NearestInstallationService extends AbstractExternalAPIService<NearestInstallationResponse> {
 
+    public NearestInstallationService(RestTemplate restTemplate) {
+        super(restTemplate);
+    }
+
     NearestInstallationDto getNearestInstallation(NearestInstallationRequest request){
-        NearestInstallationResponse res = get("", NearestInstallationResponse.class).getBody();
-        //BUSINESS LOGIC
+        NearestInstallationResponse response = get("https://airapi.airly.eu/v2/installations/nearest",
+                NearestInstallationResponse.class).getBody();
         return /* mock */ new NearestInstallationDto();
     }
 }
