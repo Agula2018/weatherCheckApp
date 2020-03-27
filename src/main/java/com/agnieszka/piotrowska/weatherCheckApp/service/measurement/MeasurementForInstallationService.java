@@ -10,23 +10,19 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class MeasurementForInstallationService extends AbstractExternalAPIService<MeasurementForInstallationRequest> {
 
+    private static final String DOMAIN_PATH = "measurements/installation";
+
     public MeasurementForInstallationService(RestTemplate restTemplate) {
         super(restTemplate);
     }
 
-    @Override
-    protected String getDomainPath() {
-        return null;
-    }
-
-    @Override
-    protected String buildURLParams(MeasurementForInstallationRequest request) {
-        return null;
-    }
 
     MeasurementForInstallationDto getMeasurementsForInstallation (MeasurementForInstallationRequest request){
-        MeasurementForInstallationResponse response = get("https://airapi.airly.eu/v2/measurements/installation",
-                MeasurementForInstallationResponse.class).getBody();
+        MeasurementForInstallationResponse response = getFromRequest(request, MeasurementForInstallationResponse.class);
         return new MeasurementForInstallationDto();
+    }
+    @Override
+    protected String getDomainPath() {
+        return getBaseURL() + DOMAIN_PATH;
     }
 }

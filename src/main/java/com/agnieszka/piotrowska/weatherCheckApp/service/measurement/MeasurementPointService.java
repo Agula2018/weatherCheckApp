@@ -10,23 +10,20 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class MeasurementPointService extends AbstractExternalAPIService<MeasurementPointRequest> {
 
+    private static final String DOMAIN_PATH = "measurements/point";
+
     public MeasurementPointService(RestTemplate restTemplate) {
         super(restTemplate);
     }
 
-    @Override
-    protected String getDomainPath() {
-        return null;
-    }
-
-    @Override
-    protected String buildURLParams(MeasurementPointRequest request) {
-        return null;
-    }
 
     MeasurementPointDto getMeasurementPoint (MeasurementPointRequest request){
-        MeasurementPointResponse response = get("https://airapi.airly.eu/v2/measurements/point",
-                MeasurementPointResponse.class).getBody();
+        MeasurementPointResponse response = getFromRequest(request, MeasurementPointResponse.class);
         return new MeasurementPointDto();
+    }
+
+    @Override
+    protected String getDomainPath() {
+        return getBaseURL() + DOMAIN_PATH;
     }
 }

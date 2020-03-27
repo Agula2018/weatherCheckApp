@@ -1,6 +1,5 @@
-package com.agnieszka.piotrowska.weatherCheckApp.model.response;
+package com.agnieszka.piotrowska.weatherCheckApp.model;
 
-import com.agnieszka.piotrowska.weatherCheckApp.model.Index;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import java.util.List;

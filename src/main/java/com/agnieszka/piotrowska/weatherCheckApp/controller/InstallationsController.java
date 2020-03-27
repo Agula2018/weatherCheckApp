@@ -21,11 +21,11 @@ public class InstallationsController {
     @GetMapping("nearest")
     public String handleNearestInstallation(@RequestParam("lat") double lat,
                                             @RequestParam("lng") double lng,
-                                            @RequestParam("maxDistanceKM") double maxDistanceKM,
+                                            @RequestParam("maxDistanceKM") int maxDistanceKM,
                                             @RequestParam("maxResults") int maxResults) throws JsonParseException {
         NearestInstallationRequest req = NearestInstallationRequest.builder()
-                .latitude(lat)
-                .longitude(lng)
+                .lat(lat)
+                .lng(lng)
                 .maxDistanceKm(maxDistanceKM)
                 .maxResults(maxResults)
                 .build();

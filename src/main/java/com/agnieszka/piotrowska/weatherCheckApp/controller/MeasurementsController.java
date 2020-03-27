@@ -38,11 +38,11 @@ public class MeasurementsController {
     public String detailedMeasurementNearest(@RequestParam("indexType") String indexType,
                                              @RequestParam("lat") double lat,
                                              @RequestParam("lng") double lng,
-                                             @RequestParam("maxDistanceKM") double maxDistanceKM) throws JsonParseException {
+                                             @RequestParam("maxDistanceKM") int maxDistanceKM) throws JsonParseException {
         MeasurementNearestRequest request = MeasurementNearestRequest.builder()
                 .indexType(indexType)
-                .latitude(lat)
-                .longitude(lng)
+                .lat(lat)
+                .lng(lng)
                 .maxDistanceKM(maxDistanceKM)
                 .build();
         return "ok";
@@ -54,8 +54,8 @@ public class MeasurementsController {
                                            @RequestParam("lng") double lng) throws JsonParseException {
         MeasurementPointRequest request = MeasurementPointRequest.builder()
                 .indexType(indexType)
-                .latitude(lat)
-                .longitude(lng)
+                .lat(lat)
+                .lng(lng)
                 .build();
         return "ok";
     }

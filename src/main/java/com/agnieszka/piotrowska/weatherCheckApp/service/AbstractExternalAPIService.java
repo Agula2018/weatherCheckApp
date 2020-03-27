@@ -1,15 +1,13 @@
 package com.agnieszka.piotrowska.weatherCheckApp.service;
 
-import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.util.URLUtil;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public abstract class AbstractExternalAPIService<T> {
+public abstract class AbstractExternalAPIService <T> {
 
     private static final String BASE_URL = "https://airapi.airly.eu/v2/";
 

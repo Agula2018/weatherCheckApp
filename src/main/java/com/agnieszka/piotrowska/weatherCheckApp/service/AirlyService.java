@@ -21,8 +21,8 @@ public class AirlyService {
 
     public NearestInstallationDto getNearestInstallations (NearestInstallationRequest request){
        NearestInstallationRequest.builder()
-               .latitude(50.062006)
-               .longitude(19.940984)
+               .lat(50.062006)
+               .lng(19.940984)
                .maxDistanceKm(3)
                .maxResults(1)
                .build();
@@ -47,8 +47,8 @@ public class AirlyService {
     public MeasurementNearestDto getMeasurementNearest(MeasurementNearestRequest request){
         MeasurementNearestRequest.builder()
                 .indexType("AIRLY_CAQI")
-                .latitude(50.062006)
-                .longitude(19.940984)
+                .lat(50.062006)
+                .lng(19.940984)
                 .maxDistanceKM(3)
                 .build();
         return new MeasurementNearestDto();
@@ -56,8 +56,8 @@ public class AirlyService {
     public MeasurementPointDto getMeasurementPoint(MeasurementPointRequest request){
         MeasurementPointRequest.builder()
                 .indexType("AIRLY_CAQI")
-                .latitude(50.062006)
-                .longitude(19.940984)
+                .lat(50.062006)
+                .lng(19.940984)
                 .build();
         return new MeasurementPointDto();
     }

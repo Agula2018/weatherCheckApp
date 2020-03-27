@@ -8,25 +8,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class MeasurementNearestService extends AbstractExternalAPIService<MeasurementNearestRequest> {
+public class MeasurementNearestService extends AbstractExternalAPIService <MeasurementNearestRequest> {
+
+    private static final String DOMAIN_PATH = "measurements/nearest";
 
     public MeasurementNearestService(RestTemplate restTemplate) {
         super(restTemplate);
     }
 
+    MeasurementNearestDto getMeasurementNearest(MeasurementNearestRequest request){
+        MeasurementNearestResponse response = getFromRequest(request, MeasurementNearestResponse.class);
+        return new MeasurementNearestDto();
+    }
+
     @Override
     protected String getDomainPath() {
-        return null;
-    }
-
-    @Override
-    protected String buildURLParams(MeasurementNearestRequest request) {
-        return null;
-    }
-
-    MeasurementNearestDto getMeasurementNearest(MeasurementNearestRequest request){
-        MeasurementNearestResponse response = get("https://airapi.airly.eu/v2/measurements/nearest",
-                MeasurementNearestResponse.class).getBody();
-        return new MeasurementNearestDto();
+        return getBaseURL() + DOMAIN_PATH;
     }
 }

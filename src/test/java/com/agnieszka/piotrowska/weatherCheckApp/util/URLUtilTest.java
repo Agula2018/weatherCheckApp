@@ -10,10 +10,10 @@ class URLUtilTest {
 
     @Test
     void getURLParams() {
-        String expected = "?latitude=50.062006&longitude=19.940984&maxDistanceKm=3.0&maxResults=1";
+        String expected = "?lat=50.062006&lng=19.940984&maxDistanceKm=3&maxResults=1";
         NearestInstallationRequest req = NearestInstallationRequest.builder()
-                .latitude(50.062006)
-                .longitude(19.940984)
+                .lat(50.062006)
+                .lng(19.940984)
                 .maxDistanceKm(3)
                 .maxResults(1)
                 .build();
