@@ -2,7 +2,10 @@ package com.agnieszka.piotrowska.weatherCheckApp.service.measurement;
 
 import com.agnieszka.piotrowska.weatherCheckApp.model.dto.MeasurementForInstallationDto;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementForInstallationRequest;
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.RequestForExternalAPI;
 import com.agnieszka.piotrowska.weatherCheckApp.model.response.MeasurementForInstallationResponse;
+import com.agnieszka.piotrowska.weatherCheckApp.model.response.NearestInstallationResponse;
 import com.agnieszka.piotrowska.weatherCheckApp.service.AbstractExternalAPIService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -16,9 +19,14 @@ public class MeasurementForInstallationService extends AbstractExternalAPIServic
         super(restTemplate);
     }
 
-
     MeasurementForInstallationDto getMeasurementsForInstallation (MeasurementForInstallationRequest request){
-        MeasurementForInstallationResponse response = getFromRequest(request, MeasurementForInstallationResponse.class);
+        RequestForExternalAPI<MeasurementForInstallationRequest, MeasurementForInstallationResponse> requestObject =
+                RequestForExternalAPI.<MeasurementForInstallationRequest, MeasurementForInstallationResponse>builder()
+                        .requestObject(request)
+                        .responseClass(MeasurementForInstallationResponse.class)
+                        .isQueryParam(true)
+                        .build();
+        MeasurementForInstallationResponse response = getFromRequest(requestObject);
         return new MeasurementForInstallationDto();
     }
     @Override

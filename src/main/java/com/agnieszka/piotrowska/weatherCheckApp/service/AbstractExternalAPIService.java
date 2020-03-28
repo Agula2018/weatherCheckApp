@@ -1,5 +1,6 @@
 package com.agnieszka.piotrowska.weatherCheckApp.service;
 
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.RequestForExternalAPI;
 import com.agnieszka.piotrowska.weatherCheckApp.util.URLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -18,16 +19,20 @@ public abstract class AbstractExternalAPIService <T> {
         this.restTemplate = restTemplate;
     }
 
-    public <RESPONSE> RESPONSE getFromRequest(T requestObject, Class<RESPONSE> responseClass){
-        return get(getURLWithParams(requestObject), responseClass).getBody();
+    public <RESPONSE> RESPONSE getFromRequest(RequestForExternalAPI<T, RESPONSE> request){
+        return get(getURLWithParams(
+                request.getRequestObject(),
+                request.isQueryParam()),
+                request.getResponseClass())
+                .getBody();
     }
 
-    private <T> ResponseEntity <T> get(String url, Class<T> resultClass) {
+    private <T> ResponseEntity <T> get(String queryPart, Class<T> resultClass) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
         HttpEntity<T> entity = new HttpEntity<>(headers);
         return restTemplate.exchange(
-                url,
+                getBaseURL() + queryPart,
                 HttpMethod.GET,
                 entity,
                 resultClass);
@@ -37,15 +42,14 @@ public abstract class AbstractExternalAPIService <T> {
         return BASE_URL + getDomainPath();
     }
 
-
-    protected String getURLWithParams(T request){
-        return getDomainPath() + buildURLParams(request);
+    protected String getURLWithParams(T request, boolean isQueryParam){
+        return buildURLParams(request, isQueryParam);
     }
 
     protected abstract String getDomainPath();
 
-    protected  String buildURLParams(T request) {
-        return URLUtil.getURLParams(request);
+    protected  String buildURLParams(T request, boolean isQueryParam) {
+        return URLUtil.getURLParams(request, isQueryParam);
     }
 
 }

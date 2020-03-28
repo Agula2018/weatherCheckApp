@@ -18,6 +18,6 @@ class URLUtilTest {
                 .maxResults(1)
                 .build();
 
-        Assert.assertEquals(expected, URLUtil.getURLParams(req));
+        Assert.assertEquals(expected, URLUtil.getURLParams(req, true));
     }
 }

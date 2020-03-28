@@ -11,15 +11,18 @@ public class URLUtil {
     private URLUtil() {
     }
 
-    public static <T> String getURLParams(T requestClass) {
-        if (requestClass != null) {
+    public static <T> String getURLParams(T requestObject, boolean isQueryParam) {
+        if (requestObject != null) {
             try {
-                StringJoiner paramsJoiner = new StringJoiner("&");
-                for (Field singleField : requestClass.getClass().getDeclaredFields()) {
-                    String fieldName = singleField.getName();
-                    paramsJoiner.add(getKeyValuePair(fieldName, getFieldValue(requestClass, fieldName)));
-                }
-                return "?" + paramsJoiner.toString();
+                StringJoiner paramsJoiner = new StringJoiner(isQueryParam ? "&" : "/");
+                    for (Field singleField : requestObject.getClass().getDeclaredFields()) {
+                        String fieldName = singleField.getName();
+                        paramsJoiner.add(
+                                isQueryParam ?
+                                getKeyValuePair(fieldName, getFieldValue(requestObject, fieldName)) : getFieldValue(requestObject, fieldName)
+                        );
+                    }
+                return isQueryParam ? "?" : "" + paramsJoiner.toString();
             } catch (IllegalAccessException | InvocationTargetException e) {
                 //EXCEPTION
                 return "";

@@ -1,7 +1,10 @@
 package com.agnieszka.piotrowska.weatherCheckApp.service.installation;
 
 import com.agnieszka.piotrowska.weatherCheckApp.model.dto.NearestInstallationDto;
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.InstallationsByIdRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.RequestForExternalAPI;
+import com.agnieszka.piotrowska.weatherCheckApp.model.response.InstallationByIdResponse;
 import com.agnieszka.piotrowska.weatherCheckApp.model.response.NearestInstallationResponse;
 import com.agnieszka.piotrowska.weatherCheckApp.service.AbstractExternalAPIService;
 import org.springframework.stereotype.Service;
@@ -16,9 +19,14 @@ class NearestInstallationService extends AbstractExternalAPIService<NearestInsta
         super(restTemplate);
     }
 
-
     NearestInstallationDto getNearestInstallation(NearestInstallationRequest request){
-        NearestInstallationResponse response = getFromRequest(request, NearestInstallationResponse.class);
+        RequestForExternalAPI<NearestInstallationRequest, NearestInstallationResponse> requestObject =
+                RequestForExternalAPI.<NearestInstallationRequest, NearestInstallationResponse>builder()
+                        .requestObject(request)
+                        .responseClass(NearestInstallationResponse.class)
+                        .isQueryParam(true)
+                        .build();
+        NearestInstallationResponse response = getFromRequest(requestObject);
 
         return /* mock */ new NearestInstallationDto();
     }

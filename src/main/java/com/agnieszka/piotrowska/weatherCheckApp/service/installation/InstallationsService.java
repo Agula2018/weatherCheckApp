@@ -21,10 +21,10 @@ public class InstallationsService {
     }
 
     public NearestInstallationDto getNearestInstallation(NearestInstallationRequest request){
-        return getNearestInstallation(request);
+        return nearestInstallationService.getNearestInstallation(request);
     }
 
     public InstallationsByIdDto getInstallationsByIdDto(InstallationsByIdRequest request){
-        return getInstallationsByIdDto(request);
+        return installationsByIdService.getInstallationById(request);
     }
 }
