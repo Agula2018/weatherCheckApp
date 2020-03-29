@@ -1,40 +1,54 @@
 package com.agnieszka.piotrowska.weatherCheckApp.service.measurement;
 
 import com.agnieszka.piotrowska.weatherCheckApp.model.dto.MeasurementPointDto;
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementPointRequest;
+import com.agnieszka.piotrowska.weatherCheckApp.model.response.MeasurementPointResponse;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.client.RestTemplate;
+import static org.springframework.http.HttpMethod.GET;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(MeasurementPointService.class)
 class MeasurementPointServiceTest {
 
-    @Mock
+    @Mock(answer = Answers.RETURNS_DEEP_STUBS)
     RestTemplate restTemplate;
 
+    private MeasurementService testBean;
     @Autowired
-    MockMvc mockMvc;
+    public void init(){
+        testBean = new MeasurementService(null,
+                null,new MeasurementPointService(restTemplate));
+    }
 
     @Test
     void shouldReturnMeasurementPointURL() {
-        MeasurementPointDto measurementPointDto = new MeasurementPointDto();
+        MeasurementPointResponse measurementPointResponse = new MeasurementPointResponse();
 
-        Mockito.when(restTemplate.getForEntity(
-                "https://airapi.airly.eu/v2/measurement/point" +
-                        buildSuccessMeasuremntPointPath(),
-                MeasurementPointDto.class))
-                .thenReturn(new ResponseEntity<>(measurementPointDto, HttpStatus.OK));
-    }
+        Mockito.when(restTemplate.exchange(
+                "https://airapi.airly.eu/v2/measurement/point?indexType=AIRLY_CAQI&lat=50.062006&lng=19.940984",
+                GET,
+                new HttpEntity<>(new HttpHeaders()),
+                MeasurementPointResponse.class))
+                .thenReturn(new ResponseEntity<>(measurementPointResponse, HttpStatus.OK));
 
-    private String buildSuccessMeasuremntPointPath() {
-        return "?indexType=AIRLY_CAQI&lat=50.062006&lng=19.940984";
+        MeasurementPointRequest request = MeasurementPointRequest.builder()
+                .indexType("AIRLY_CAQ")
+                .lat(50.062006)
+                .lng(19.940984)
+                .build();
+        MeasurementPointDto resultExpected = new MeasurementPointDto();
+        MeasurementPointDto result = testBean.getMeasurementPoint(request);
+
+        Assert.assertEquals(resultExpected, result);
     }
 }

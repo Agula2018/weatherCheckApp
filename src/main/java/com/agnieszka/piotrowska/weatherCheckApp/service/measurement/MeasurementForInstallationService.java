@@ -2,10 +2,8 @@ package com.agnieszka.piotrowska.weatherCheckApp.service.measurement;
 
 import com.agnieszka.piotrowska.weatherCheckApp.model.dto.MeasurementForInstallationDto;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementForInstallationRequest;
-import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.RequestForExternalAPI;
 import com.agnieszka.piotrowska.weatherCheckApp.model.response.MeasurementForInstallationResponse;
-import com.agnieszka.piotrowska.weatherCheckApp.model.response.NearestInstallationResponse;
 import com.agnieszka.piotrowska.weatherCheckApp.service.AbstractExternalAPIService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,7 +17,7 @@ public class MeasurementForInstallationService extends AbstractExternalAPIServic
         super(restTemplate);
     }
 
-    MeasurementForInstallationDto getMeasurementsForInstallation (MeasurementForInstallationRequest request){
+    MeasurementForInstallationDto getMeasurementForInstallation (MeasurementForInstallationRequest request){
         RequestForExternalAPI<MeasurementForInstallationRequest, MeasurementForInstallationResponse> requestObject =
                 RequestForExternalAPI.<MeasurementForInstallationRequest, MeasurementForInstallationResponse>builder()
                         .requestObject(request)
@@ -31,6 +29,6 @@ public class MeasurementForInstallationService extends AbstractExternalAPIServic
     }
     @Override
     protected String getDomainPath() {
-        return getBaseURL() + DOMAIN_PATH;
+        return DOMAIN_PATH;
     }
 }

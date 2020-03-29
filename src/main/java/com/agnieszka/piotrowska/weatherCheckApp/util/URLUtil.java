@@ -14,14 +14,15 @@ public class URLUtil {
     public static <T> String getURLParams(T requestObject, boolean isQueryParam) {
         if (requestObject != null) {
             try {
+
                 StringJoiner paramsJoiner = new StringJoiner(isQueryParam ? "&" : "/");
-                    for (Field singleField : requestObject.getClass().getDeclaredFields()) {
-                        String fieldName = singleField.getName();
-                        paramsJoiner.add(
-                                isQueryParam ?
-                                getKeyValuePair(fieldName, getFieldValue(requestObject, fieldName)) : getFieldValue(requestObject, fieldName)
-                        );
-                    }
+                for (Field singleField : requestObject.getClass().getDeclaredFields()) {
+                    String fieldName = singleField.getName();
+                    paramsJoiner.add(
+                            isQueryParam ?
+                                    getKeyValuePair(fieldName, getFieldValue(requestObject, fieldName)) : getFieldValue(requestObject, fieldName)
+                    );
+                }
                 return isQueryParam ? "?" : "" + paramsJoiner.toString();
             } catch (IllegalAccessException | InvocationTargetException e) {
                 //EXCEPTION

@@ -25,15 +25,16 @@ public class MeasurementService{
         this.measurementPointService = measurementPointService;
     }
 
+
     public MeasurementForInstallationDto getMeasurementForInstallation(MeasurementForInstallationRequest request){
-        return getMeasurementForInstallation(request);
+        return measurementForInstallationService.getMeasurementForInstallation(request);
     }
 
     public MeasurementNearestDto getMeasurementNearest(MeasurementNearestRequest request){
-        return getMeasurementNearest(request);
+        return measurementNearestService.getMeasurementNearest(request);
     }
     public MeasurementPointDto getMeasurementPoint(MeasurementPointRequest request){
-        return getMeasurementPoint(request);
+        return measurementPointService.getMeasurementPoint(request);
     }
 
 }

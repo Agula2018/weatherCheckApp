@@ -8,6 +8,6 @@ import java.util.List;
 public class MeasurementPointResponse {
 
     private SingleMeasurement current;
-    private List<SingleMeasurement> history;
+    private List <SingleMeasurement> history;
     private List <SingleMeasurement> forecast;
 }

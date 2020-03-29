@@ -7,6 +7,6 @@ import java.util.List;
 @Data
 public class MeasurementForInstallationDto {
     private SingleMeasurement current;
-    private List<SingleMeasurement> history;
+    private List <SingleMeasurement> history;
     private List <SingleMeasurement> forecast;
 }

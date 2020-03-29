@@ -10,14 +10,10 @@ import org.junit.runner.RunWith;
 import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.client.RestTemplate;
-
-import static org.mockito.ArgumentMatchers.*;
 import static org.springframework.http.HttpMethod.GET;
 
 @RunWith(SpringRunner.class)
@@ -52,6 +48,5 @@ public class InstallationsByIdServiceTest {
         Assert.assertEquals(resultExpected, result);
 
     }
-
 }
 

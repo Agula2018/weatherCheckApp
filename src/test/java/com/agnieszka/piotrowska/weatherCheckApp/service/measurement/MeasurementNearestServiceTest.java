@@ -1,40 +1,54 @@
 package com.agnieszka.piotrowska.weatherCheckApp.service.measurement;
 
 import com.agnieszka.piotrowska.weatherCheckApp.model.dto.MeasurementNearestDto;
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementNearestRequest;
+import com.agnieszka.piotrowska.weatherCheckApp.model.response.MeasurementNearestResponse;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.client.RestTemplate;
+import static org.springframework.http.HttpMethod.GET;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(MeasurementNearestService.class)
 class MeasurementNearestServiceTest {
 
-    @Mock
+    @Mock(answer = Answers.RETURNS_DEEP_STUBS)
     RestTemplate restTemplate;
 
+    private MeasurementService testBean;
+
     @Autowired
-    MockMvc mockMvc;
-
-    @Test
-    public void shouldReturnMeasurementNearestURL(){
-
-        MeasurementNearestDto measurementNearestDto = new MeasurementNearestDto();
-        Mockito.when(restTemplate.getForEntity(
-                "https://airapi.airly.eu/v2/measurement/nearest" +
-                        buildSuccessfulMeasurementNearestPath(),
-                MeasurementNearestDto.class))
-                .thenReturn(new ResponseEntity<>(measurementNearestDto, HttpStatus.OK));
+    public void init() {
+        testBean = new MeasurementService(null,
+                new MeasurementNearestService(restTemplate), null);
     }
 
-    private String buildSuccessfulMeasurementNearestPath() {
-        return "?indexType=AIRLY_CAQI&lat=50.062006&lng=19.940984&maxDistanceKM=3";
+    @Test
+    public void shouldReturnMeasurementNearestURL() {
+
+        MeasurementNearestResponse measurementNearestResponse = new MeasurementNearestResponse();
+        Mockito.when(restTemplate.exchange(
+                "https://airapi.airly.eu/v2/measurement/nearest?indexType=AIRLY_CAQI&lat=50.062006&lng=19.940984&maxDistanceKM=3",
+                GET,
+                new HttpEntity<>(new HttpHeaders()),
+                MeasurementNearestResponse.class))
+                .thenReturn(new ResponseEntity<>(measurementNearestResponse, HttpStatus.OK));
+        MeasurementNearestRequest request = MeasurementNearestRequest.builder()
+                .indexType("AIRLY_CAQI")
+                .lat(50.062006)
+                .lng(19.940984)
+                .maxDistanceKM(3)
+                .build();
+        MeasurementNearestDto resultExpected = new MeasurementNearestDto();
+        MeasurementNearestDto result = testBean.getMeasurementNearest(request);
+        Assert.assertEquals(resultExpected, result);
     }
 }
