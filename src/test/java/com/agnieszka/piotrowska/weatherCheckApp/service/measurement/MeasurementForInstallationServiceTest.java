@@ -52,4 +52,25 @@ class MeasurementForInstallationServiceTest {
 
         Assert.assertEquals(resultExpected, result);
     }
+    @Test
+    public void shouldReturnNotFoundMeasurementsForInstallationURL() {
+        MeasurementForInstallationResponse measurementForInstallationResponse = new MeasurementForInstallationResponse();
+
+        Mockito.when(restTemplate.exchange(
+                "https://airapi.airly.eu/v2/measurement/installation?indexType=AIRLY_CAQI&installationId=8020",
+                GET,
+                new HttpEntity <>(new HttpHeaders()),
+                MeasurementForInstallationResponse.class))
+                .thenReturn(new ResponseEntity<>(measurementForInstallationResponse, HttpStatus.NOT_FOUND));
+
+        MeasurementForInstallationRequest request = MeasurementForInstallationRequest.builder()
+                .indexType("AIRLY_CAQI")
+                .installationId(8020)
+                .build();
+
+        MeasurementForInstallationDto resultExpected = new MeasurementForInstallationDto();
+        MeasurementForInstallationDto result = testBean.getMeasurementForInstallation(request);
+
+        Assert.assertEquals(resultExpected, result);
+    }
 }

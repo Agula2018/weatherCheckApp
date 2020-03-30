@@ -51,4 +51,24 @@ class MeasurementNearestServiceTest {
         MeasurementNearestDto result = testBean.getMeasurementNearest(request);
         Assert.assertEquals(resultExpected, result);
     }
+    @Test
+    public void shouldReturnNotFoundMeasurementNearest() {
+
+        MeasurementNearestResponse measurementNearestResponse = new MeasurementNearestResponse();
+        Mockito.when(restTemplate.exchange(
+                "https://airapi.airly.eu/v2/measurement/nearest?indexType=AIRLY_CAQI&lat=52.062006&lng=10.940984&maxDistanceKM=3",
+                GET,
+                new HttpEntity<>(new HttpHeaders()),
+                MeasurementNearestResponse.class))
+                .thenReturn(new ResponseEntity<>(measurementNearestResponse, HttpStatus.NOT_FOUND));
+        MeasurementNearestRequest request = MeasurementNearestRequest.builder()
+                .indexType("AIRLY_CAQI")
+                .lat(52.062006)
+                .lng(10.940984)
+                .maxDistanceKM(3)
+                .build();
+        MeasurementNearestDto resultExpected = new MeasurementNearestDto();
+        MeasurementNearestDto result = testBean.getMeasurementNearest(request);
+        Assert.assertEquals(resultExpected, result);
+    }
 }

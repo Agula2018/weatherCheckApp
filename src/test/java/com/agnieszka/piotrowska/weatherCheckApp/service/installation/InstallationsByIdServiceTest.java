@@ -48,5 +48,23 @@ public class InstallationsByIdServiceTest {
         Assert.assertEquals(resultExpected, result);
 
     }
+    @Test
+    public void shouldReturnNotFoundInstallationException(){
+        InstallationByIdResponse installationByIdResponse = new InstallationByIdResponse();
+
+        Mockito.when(restTemplate.exchange("https://airapi.airly.eu/v2/installations/8020",
+                GET,
+                new HttpEntity<>(new HttpHeaders()),
+                InstallationByIdResponse.class))
+                .thenReturn(new ResponseEntity<>(installationByIdResponse, HttpStatus.NOT_FOUND));
+
+        InstallationsByIdRequest request = InstallationsByIdRequest.builder().installationId(8020).build();
+
+        InstallationsByIdDto resultExpected = new InstallationsByIdDto();
+        InstallationsByIdDto result = testBean.getInstallationsByIdDto(request);
+
+        Assert.assertEquals(resultExpected, result);
+
+    }
 }
 
