@@ -29,7 +29,10 @@ public abstract class AbstractExternalAPIService<T> {
             return response.getBody();
         } catch (ResponseStatusException ex) {
             throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "Installation not found", ex);
+                    HttpStatus.NOT_FOUND, "installation not found", ex);
+        } catch (Exception e) {
+            throw new ResponseStatusException
+                    (HttpStatus.MOVED_PERMANENTLY, "follow redirect", e);
         }
     }
 

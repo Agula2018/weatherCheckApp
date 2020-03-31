@@ -14,6 +14,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
+
 import static org.springframework.http.HttpMethod.GET;
 
 @RunWith(SpringRunner.class)
@@ -31,9 +32,9 @@ public class InstallationsByIdServiceTest {
     }
 
     @Test
-    public void shouldReturnInstallationByIdURL(){
+    public void shouldReturnInstallationByIdURL() {
         InstallationByIdResponse installationByIdResponse = new InstallationByIdResponse();
-        
+
         Mockito.when(restTemplate.exchange("https://airapi.airly.eu/v2/installations/8077",
                 GET,
                 new HttpEntity<>(new HttpHeaders()),
@@ -48,17 +49,18 @@ public class InstallationsByIdServiceTest {
         Assert.assertEquals(resultExpected, result);
 
     }
+
     @Test
-    public void shouldReturnNotFoundInstallationException(){
+    public void shouldReturnNotFoundInstallationException() {
         InstallationByIdResponse installationByIdResponse = new InstallationByIdResponse();
 
-        Mockito.when(restTemplate.exchange("https://airapi.airly.eu/v2/installations/8020",
+        Mockito.when(restTemplate.exchange("https://airapi.airly.eu/v2/installations/204",
                 GET,
                 new HttpEntity<>(new HttpHeaders()),
                 InstallationByIdResponse.class))
                 .thenReturn(new ResponseEntity<>(installationByIdResponse, HttpStatus.NOT_FOUND));
 
-        InstallationsByIdRequest request = InstallationsByIdRequest.builder().installationId(8020).build();
+        InstallationsByIdRequest request = InstallationsByIdRequest.builder().installationId(204).build();
 
         InstallationsByIdDto resultExpected = new InstallationsByIdDto();
         InstallationsByIdDto result = testBean.getInstallationsByIdDto(request);
@@ -66,5 +68,22 @@ public class InstallationsByIdServiceTest {
         Assert.assertEquals(resultExpected, result);
 
     }
-}
 
+    @Test
+    public void shouldRedirectInstallationById() {
+        InstallationByIdResponse installationByIdResponse = new InstallationByIdResponse();
+
+        Mockito.when(restTemplate.exchange("https://airapi.airly.eu/v2/installations/204",
+                GET,
+                new HttpEntity<>(new HttpHeaders()),
+                InstallationByIdResponse.class))
+                .thenReturn(new ResponseEntity<>(installationByIdResponse, HttpStatus.MOVED_PERMANENTLY));
+
+        InstallationsByIdRequest request = InstallationsByIdRequest.builder().installationId(204).build();
+
+        InstallationsByIdDto resultExpected = new InstallationsByIdDto();
+        InstallationsByIdDto result = testBean.getInstallationsByIdDto(request);
+
+        Assert.assertEquals(resultExpected, result);
+    }
+}
