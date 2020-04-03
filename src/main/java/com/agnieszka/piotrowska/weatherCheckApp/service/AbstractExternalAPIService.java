@@ -3,6 +3,7 @@ package com.agnieszka.piotrowska.weatherCheckApp.service;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.RequestForExternalAPI;
 import com.agnieszka.piotrowska.weatherCheckApp.util.URLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +15,9 @@ public abstract class AbstractExternalAPIService<T> {
     private static final String BASE_URL = "https://airapi.airly.eu/v2/";
 
     public RestTemplate restTemplate;
+
+    @Value("${apikey}")
+    private String principalRequestHeader;
 
     @Autowired
     public AbstractExternalAPIService(RestTemplate restTemplate) {
@@ -39,6 +43,7 @@ public abstract class AbstractExternalAPIService<T> {
     private <T> ResponseEntity<T> get(String queryPart, Class<T> resultClass) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
+        headers.containsKey(principalRequestHeader);
         HttpEntity<T> entity = new HttpEntity<>(headers);
         return restTemplate.exchange(
                 getBaseURL() + queryPart,
