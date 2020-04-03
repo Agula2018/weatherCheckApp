@@ -4,8 +4,6 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallatio
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class URLUtilTest {
 
     @Test

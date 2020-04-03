@@ -13,11 +13,12 @@ import org.springframework.web.server.ResponseStatusException;
 public abstract class AbstractExternalAPIService<T> {
 
     private static final String BASE_URL = "https://airapi.airly.eu/v2/";
+    private static final String API_KEY_HEADER_NAME = "apikey";
 
     public RestTemplate restTemplate;
 
     @Value("${apikey}")
-    private String principalRequestHeader;
+    private String apiKey;
 
     @Autowired
     public AbstractExternalAPIService(RestTemplate restTemplate) {
@@ -41,15 +42,21 @@ public abstract class AbstractExternalAPIService<T> {
     }
 
     private <T> ResponseEntity<T> get(String queryPart, Class<T> resultClass) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
-        headers.containsKey(principalRequestHeader);
-        HttpEntity<T> entity = new HttpEntity<>(headers);
+
+        HttpEntity<T> entity = new HttpEntity<>(createHeaders());
         return restTemplate.exchange(
                 getBaseURL() + queryPart,
                 HttpMethod.GET,
                 entity,
                 resultClass);
+    }
+
+    private HttpHeaders createHeaders(){
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
+        headers.add(API_KEY_HEADER_NAME, apiKey);
+
+        return headers;
     }
 
     protected String getBaseURL() {

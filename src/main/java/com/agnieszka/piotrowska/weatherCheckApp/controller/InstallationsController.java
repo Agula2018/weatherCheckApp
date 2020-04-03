@@ -1,8 +1,9 @@
 package com.agnieszka.piotrowska.weatherCheckApp.controller;
 
+import com.agnieszka.piotrowska.weatherCheckApp.model.dto.InstallationsByIdDto;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.InstallationsByIdRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
-import com.agnieszka.piotrowska.weatherCheckApp.service.AirlyParsing;
+import com.agnieszka.piotrowska.weatherCheckApp.service.installation.InstallationsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +12,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("v2/installations/")
 public class InstallationsController {
 
-    private final AirlyParsing airlyParsing;
+    private InstallationsService installationsService;
 
     @Autowired
-    public InstallationsController(AirlyParsing airlyParsing) {
-        this.airlyParsing = airlyParsing;
+    public InstallationsController(InstallationsService installationsService) {
+        this.installationsService = installationsService;
     }
 
     @GetMapping("nearest")
@@ -34,12 +35,14 @@ public class InstallationsController {
     }
 
     @GetMapping("{installationId}")
-    public String handleInstallationId(@PathVariable("installationId") int installationId) throws JsonParseException {
+    public InstallationsByIdDto handleInstallationId(@PathVariable("installationId") int installationId) throws JsonParseException {
 
         InstallationsByIdRequest request = InstallationsByIdRequest.builder()
                 .installationId(installationId)
                 .build();
 
-        return "ok";
+        InstallationsByIdDto dto = installationsService.getInstallationsByIdDto(request);
+
+        return dto;
     }
 }

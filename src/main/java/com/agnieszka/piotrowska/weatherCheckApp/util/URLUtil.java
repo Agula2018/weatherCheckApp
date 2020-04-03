@@ -3,7 +3,6 @@ package com.agnieszka.piotrowska.weatherCheckApp.util;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Type;
 import java.util.StringJoiner;
 
 public class URLUtil {

@@ -3,7 +3,7 @@ package com.agnieszka.piotrowska.weatherCheckApp.controller;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementForInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementNearestRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementPointRequest;
-import com.agnieszka.piotrowska.weatherCheckApp.service.AirlyParsing;
+import com.agnieszka.piotrowska.weatherCheckApp.service.measurement.MeasurementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("v2/measurements/")
 public class MeasurementsController {
 
-    private final AirlyParsing airlyParsing;
+    private MeasurementService measurementService;
 
     @Autowired
-    public MeasurementsController(AirlyParsing airlyParsing) {
-        this.airlyParsing = airlyParsing;
+    public MeasurementsController(MeasurementService measurementService) {
+        this.measurementService = measurementService;
     }
 
 
