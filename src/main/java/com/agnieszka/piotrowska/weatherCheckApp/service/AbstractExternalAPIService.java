@@ -42,7 +42,6 @@ public abstract class AbstractExternalAPIService<T> {
     }
 
     private <T> ResponseEntity<T> get(String queryPart, Class<T> resultClass) {
-
         HttpEntity<T> entity = new HttpEntity<>(createHeaders());
         return restTemplate.exchange(
                 getBaseURL() + queryPart,
@@ -55,7 +54,6 @@ public abstract class AbstractExternalAPIService<T> {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
         headers.add(API_KEY_HEADER_NAME, apiKey);
-
         return headers;
     }
 

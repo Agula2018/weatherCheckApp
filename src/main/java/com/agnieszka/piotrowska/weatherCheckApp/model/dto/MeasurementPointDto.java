@@ -1,10 +1,12 @@
 package com.agnieszka.piotrowska.weatherCheckApp.model.dto;
 
 import com.agnieszka.piotrowska.weatherCheckApp.model.SingleMeasurement;
+import lombok.Builder;
 import lombok.Data;
 import java.util.List;
 
 @Data
+@Builder(toBuilder = true)
 public class MeasurementPointDto {
 
     private SingleMeasurement current;

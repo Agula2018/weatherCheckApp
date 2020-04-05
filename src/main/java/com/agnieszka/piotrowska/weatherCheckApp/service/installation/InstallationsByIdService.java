@@ -15,24 +15,23 @@ import org.springframework.web.client.RestTemplate;
 public class InstallationsByIdService extends AbstractExternalAPIService<InstallationsByIdRequest> {
 
     private static final String DOMAIN_PATH = "installations/";
-
     private Parser<InstallationByIdResponse, InstallationsByIdDto> dtoParser;
 
     @Autowired
     public InstallationsByIdService(RestTemplate restTemplate,
-                                    @Qualifier("installationByIdParser") Parser<InstallationByIdResponse, InstallationsByIdDto> dtoParser
-    ) {
+                                    @Qualifier("installationByIdParser") Parser<InstallationByIdResponse,
+                                            InstallationsByIdDto> dtoParser) {
         super(restTemplate);
         this.dtoParser = dtoParser;
     }
 
-    InstallationsByIdDto getInstallationById(InstallationsByIdRequest request){
+    InstallationsByIdDto getInstallationById(InstallationsByIdRequest request) {
         RequestForExternalAPI<InstallationsByIdRequest, InstallationByIdResponse> requestObject =
-        RequestForExternalAPI.<InstallationsByIdRequest, InstallationByIdResponse>builder()
-                .requestObject(request)
-                .responseClass(InstallationByIdResponse.class)
-                .isQueryParam(false)
-                .build();
+                RequestForExternalAPI.<InstallationsByIdRequest, InstallationByIdResponse>builder()
+                        .requestObject(request)
+                        .responseClass(InstallationByIdResponse.class)
+                        .isQueryParam(false)
+                        .build();
         return dtoParser.toDto(getFromRequest(requestObject));
     }
 

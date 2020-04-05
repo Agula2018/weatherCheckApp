@@ -10,6 +10,7 @@ import lombok.Data;
 @Builder(toBuilder = true)
 public class InstallationsByIdDto {
 
+    private int installationId;
     private Location location;
     private Address address;
     private Double elevation;

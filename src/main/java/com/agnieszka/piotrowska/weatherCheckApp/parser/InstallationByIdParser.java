@@ -10,6 +10,7 @@ public class InstallationByIdParser implements Parser<InstallationByIdResponse, 
     @Override
     public InstallationsByIdDto toDto(InstallationByIdResponse installationByIdResponse) {
         return InstallationsByIdDto.builder()
+                .installationId(installationByIdResponse.getId())
                 .address(installationByIdResponse.getAddress())
                 .airly(installationByIdResponse.getAirly())
                 .elevation(installationByIdResponse.getElevation())

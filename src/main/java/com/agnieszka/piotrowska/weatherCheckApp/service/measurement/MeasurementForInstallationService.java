@@ -4,7 +4,10 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.dto.MeasurementForInstalla
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementForInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.RequestForExternalAPI;
 import com.agnieszka.piotrowska.weatherCheckApp.model.response.MeasurementForInstallationResponse;
+import com.agnieszka.piotrowska.weatherCheckApp.parser.Parser;
 import com.agnieszka.piotrowska.weatherCheckApp.service.AbstractExternalAPIService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,9 +15,15 @@ import org.springframework.web.client.RestTemplate;
 public class MeasurementForInstallationService extends AbstractExternalAPIService<MeasurementForInstallationRequest> {
 
     private static final String DOMAIN_PATH = "measurements/installation";
+    private Parser <MeasurementForInstallationResponse, MeasurementForInstallationDto> dtoParser;
 
-    public MeasurementForInstallationService(RestTemplate restTemplate) {
+    @Autowired
+    public MeasurementForInstallationService(RestTemplate restTemplate,
+                                             @Qualifier ("measurementForInstallationParser")
+                                                         Parser <MeasurementForInstallationResponse,
+                                                                 MeasurementForInstallationDto> dtoParser) {
         super(restTemplate);
+        this.dtoParser = dtoParser;
     }
 
     MeasurementForInstallationDto getMeasurementForInstallation (MeasurementForInstallationRequest request){
@@ -24,9 +33,9 @@ public class MeasurementForInstallationService extends AbstractExternalAPIServic
                         .responseClass(MeasurementForInstallationResponse.class)
                         .isQueryParam(true)
                         .build();
-        MeasurementForInstallationResponse response = getFromRequest(requestObject);
-        return new MeasurementForInstallationDto();
+       return dtoParser.toDto(getFromRequest(requestObject));
     }
+
     @Override
     protected String getDomainPath() {
         return DOMAIN_PATH;

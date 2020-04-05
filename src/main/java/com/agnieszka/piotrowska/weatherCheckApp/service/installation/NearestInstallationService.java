@@ -4,7 +4,10 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.dto.NearestInstallationDto
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.RequestForExternalAPI;
 import com.agnieszka.piotrowska.weatherCheckApp.model.response.NearestInstallationResponse;
+import com.agnieszka.piotrowska.weatherCheckApp.parser.Parser;
 import com.agnieszka.piotrowska.weatherCheckApp.service.AbstractExternalAPIService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,9 +15,14 @@ import org.springframework.web.client.RestTemplate;
 public class NearestInstallationService extends AbstractExternalAPIService<NearestInstallationRequest> {
 
     private static final String DOMAIN_PATH = "installations/nearest";
+    private Parser<NearestInstallationResponse, NearestInstallationDto> dtoParser;
 
-    public NearestInstallationService(RestTemplate restTemplate) {
+    @Autowired
+    public NearestInstallationService(RestTemplate restTemplate,
+                                      @Qualifier("nearestInstallationParser") Parser <NearestInstallationResponse,
+                                              NearestInstallationDto> dtoParser) {
         super(restTemplate);
+        this.dtoParser = dtoParser;
     }
 
     NearestInstallationDto getNearestInstallation(NearestInstallationRequest request){
@@ -24,8 +32,7 @@ public class NearestInstallationService extends AbstractExternalAPIService<Neare
                         .responseClass(NearestInstallationResponse.class)
                         .isQueryParam(true)
                         .build();
-        NearestInstallationResponse response = getFromRequest(requestObject);
-        return /* mock */ new NearestInstallationDto();
+       return dtoParser.toDto(getFromRequest(requestObject));
     }
 
     @Override
@@ -33,3 +40,4 @@ public class NearestInstallationService extends AbstractExternalAPIService<Neare
         return DOMAIN_PATH;
     }
 }
+

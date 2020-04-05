@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Answers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,7 +16,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.springframework.http.HttpMethod.GET;
@@ -44,11 +42,13 @@ public class InstallationsByIdServiceTest {
     public void shouldReturnInstallationByIdURL() {
         InstallationByIdResponse installationByIdResponse = new InstallationByIdResponse();
 
-        Mockito.when(restTemplate.exchange(eq("https://airapi.airly.eu/v2/installations/8077"),
+        Mockito.when(restTemplate.exchange
+                (eq("https://airapi.airly.eu/v2/installations/8077"),
                 eq(GET),
                 any(HttpEntity.class),
                 eq(InstallationByIdResponse.class)))
                 .thenReturn(new ResponseEntity<>(installationByIdResponse, HttpStatus.OK));
+
         Mockito.when(dtoParser.toDto(any(InstallationByIdResponse.class))).thenReturn(InstallationsByIdDto.builder().build());
 
         InstallationsByIdRequest request = InstallationsByIdRequest.builder().installationId(8077).build();
@@ -64,11 +64,12 @@ public class InstallationsByIdServiceTest {
     public void shouldReturnNotFoundInstallationException() {
         InstallationByIdResponse installationByIdResponse = new InstallationByIdResponse();
 
-        Mockito.when(restTemplate.exchange("https://airapi.airly.eu/v2/installations/204",
-                GET,
-                new HttpEntity<>(new HttpHeaders()),
-                InstallationByIdResponse.class))
+        Mockito.when(restTemplate.exchange(eq("https://airapi.airly.eu/v2/installations/204"),
+                eq(GET),
+                any(HttpEntity.class),
+                eq(InstallationByIdResponse.class)))
                 .thenReturn(new ResponseEntity<>(installationByIdResponse, HttpStatus.NOT_FOUND));
+        Mockito.when(dtoParser.toDto(any(InstallationByIdResponse.class))).thenReturn(InstallationsByIdDto.builder().build());
 
         InstallationsByIdRequest request = InstallationsByIdRequest.builder().installationId(204).build();
 
@@ -83,11 +84,12 @@ public class InstallationsByIdServiceTest {
     public void shouldRedirectInstallationById() {
         InstallationByIdResponse installationByIdResponse = new InstallationByIdResponse();
 
-        Mockito.when(restTemplate.exchange("https://airapi.airly.eu/v2/installations/204",
-                GET,
-                new HttpEntity<>(new HttpHeaders()),
-                InstallationByIdResponse.class))
+        Mockito.when(restTemplate.exchange(eq("https://airapi.airly.eu/v2/installations/204"),
+                eq(GET),
+                any(HttpEntity.class),
+                eq(InstallationByIdResponse.class)))
                 .thenReturn(new ResponseEntity<>(installationByIdResponse, HttpStatus.MOVED_PERMANENTLY));
+        Mockito.when(dtoParser.toDto(any(InstallationByIdResponse.class))).thenReturn(InstallationsByIdDto.builder().build());
 
         InstallationsByIdRequest request = InstallationsByIdRequest.builder().installationId(204).build();
 

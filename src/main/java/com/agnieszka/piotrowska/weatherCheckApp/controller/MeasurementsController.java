@@ -1,5 +1,8 @@
 package com.agnieszka.piotrowska.weatherCheckApp.controller;
 
+import com.agnieszka.piotrowska.weatherCheckApp.model.dto.MeasurementForInstallationDto;
+import com.agnieszka.piotrowska.weatherCheckApp.model.dto.MeasurementNearestDto;
+import com.agnieszka.piotrowska.weatherCheckApp.model.dto.MeasurementPointDto;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementForInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementNearestRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementPointRequest;
@@ -24,18 +27,21 @@ public class MeasurementsController {
 
 
     @GetMapping("installation")
-    public String measurementsForInstallation(@RequestParam("indexType") String indexType,
+    public MeasurementForInstallationDto measurementsForInstallation(@RequestParam("indexType") String indexType,
                                               @RequestParam("installationId") int installationId) throws JsonParseException {
+
         MeasurementForInstallationRequest request = MeasurementForInstallationRequest.builder()
                 .indexType(indexType)
                 .installationId(installationId)
                 .build();
 
-        return "ok";
+        MeasurementForInstallationDto dto = measurementService.getMeasurementForInstallation(request);
+
+        return dto;
     }
 
     @GetMapping("nearest")
-    public String detailedMeasurementNearest(@RequestParam("indexType") String indexType,
+    public MeasurementNearestDto detailedMeasurementNearest(@RequestParam("indexType") String indexType,
                                              @RequestParam("lat") double lat,
                                              @RequestParam("lng") double lng,
                                              @RequestParam("maxDistanceKM") int maxDistanceKM) throws JsonParseException {
@@ -45,11 +51,13 @@ public class MeasurementsController {
                 .lng(lng)
                 .maxDistanceKM(maxDistanceKM)
                 .build();
-        return "ok";
+        MeasurementNearestDto dto =measurementService.getMeasurementNearest(request);
+
+        return dto;
     }
 
     @GetMapping("point")
-    public String detailedMeasurementPoint(@RequestParam("indexType") String indexType,
+    public MeasurementPointDto detailedMeasurementPoint(@RequestParam("indexType") String indexType,
                                            @RequestParam("lat") double lat,
                                            @RequestParam("lng") double lng) throws JsonParseException {
         MeasurementPointRequest request = MeasurementPointRequest.builder()
@@ -57,7 +65,9 @@ public class MeasurementsController {
                 .lat(lat)
                 .lng(lng)
                 .build();
-        return "ok";
+
+        MeasurementPointDto dto = measurementService.getMeasurementPoint(request);
+        return dto;
     }
 }
 

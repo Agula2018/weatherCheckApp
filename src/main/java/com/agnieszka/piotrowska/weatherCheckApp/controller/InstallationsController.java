@@ -1,6 +1,7 @@
 package com.agnieszka.piotrowska.weatherCheckApp.controller;
 
 import com.agnieszka.piotrowska.weatherCheckApp.model.dto.InstallationsByIdDto;
+import com.agnieszka.piotrowska.weatherCheckApp.model.dto.NearestInstallationDto;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.InstallationsByIdRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.service.installation.InstallationsService;
@@ -20,18 +21,19 @@ public class InstallationsController {
     }
 
     @GetMapping("nearest")
-    public String handleNearestInstallation(@RequestParam("lat") double lat,
-                                            @RequestParam("lng") double lng,
-                                            @RequestParam("maxDistanceKM") int maxDistanceKM,
-                                            @RequestParam("maxResults") int maxResults) throws JsonParseException {
-        NearestInstallationRequest req = NearestInstallationRequest.builder()
+    public NearestInstallationDto handleNearestInstallation(@RequestParam("lat") double lat,
+                                                            @RequestParam("lng") double lng,
+                                                            @RequestParam("maxDistanceKM") int maxDistanceKM,
+                                                            @RequestParam("maxResults") int maxResults) throws JsonParseException {
+        NearestInstallationRequest request = NearestInstallationRequest.builder()
                 .lat(lat)
                 .lng(lng)
                 .maxDistanceKm(maxDistanceKM)
                 .maxResults(maxResults)
                 .build();
 
-        return ("ok");
+        NearestInstallationDto dto = installationsService.getNearestInstallation(request);
+        return dto;
     }
 
     @GetMapping("{installationId}")

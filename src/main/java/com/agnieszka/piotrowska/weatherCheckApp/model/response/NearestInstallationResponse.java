@@ -7,7 +7,8 @@ import lombok.Data;
 
 @Data
 public class NearestInstallationResponse {
-    private Long id;
+
+    private int id;
     private Location location;
     private Address address;
     private Double elevation;
