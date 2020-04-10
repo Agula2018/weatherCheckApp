@@ -8,11 +8,11 @@ class URLUtilTest {
 
     @Test
     void getURLParams() {
-        String expected = "?lat=50.062006&lng=19.940984&maxDistanceKm=3&maxResults=1";
+        String expected = "?lat=50.062006&lng=19.940984&maxDistanceKM=3&maxResults=1";
         NearestInstallationRequest req = NearestInstallationRequest.builder()
                 .lat(50.062006)
                 .lng(19.940984)
-                .maxDistanceKm(3)
+                .maxDistanceKM(3)
                 .maxResults(1)
                 .build();
 

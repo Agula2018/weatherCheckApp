@@ -4,6 +4,7 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.dto.MeasurementForInstalla
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementForInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.response.MeasurementForInstallationResponse;
 import com.agnieszka.piotrowska.weatherCheckApp.parser.MeasurementForInstallationParser;
+import com.agnieszka.piotrowska.weatherCheckApp.parser.Parser;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -45,7 +46,7 @@ class MeasurementForInstallationServiceTest {
         MeasurementForInstallationResponse measurementForInstallationResponse = new MeasurementForInstallationResponse();
 
         Mockito.when(restTemplate.exchange(
-                eq("https://airapi.airly.eu/v2/measurement/installation?indexType=AIRLY_CAQI&installationId=8077"),
+                eq("https://airapi.airly.eu/v2/measurements/installation?indexType=AIRLY_CAQI&installationId=8077"),
                 eq(GET),
                 any(HttpEntity.class),
                 eq(MeasurementForInstallationResponse.class)))
@@ -55,6 +56,8 @@ class MeasurementForInstallationServiceTest {
                 .indexType("AIRLY_CAQI")
                 .installationId(8077)
                 .build();
+
+        Mockito.when(dtoParser.toDto(any(MeasurementForInstallationResponse.class))).thenCallRealMethod();
 
         MeasurementForInstallationDto resultExpected = MeasurementForInstallationDto.builder().build();
         MeasurementForInstallationDto result = testBean.getMeasurementForInstallation(request);
@@ -67,7 +70,7 @@ class MeasurementForInstallationServiceTest {
         MeasurementForInstallationResponse measurementForInstallationResponse = new MeasurementForInstallationResponse();
 
         Mockito.when(restTemplate.exchange(
-                eq("https://airapi.airly.eu/v2/measurement/installation?indexType=AIRLY_CAQI&installationId=8020"),
+                eq("https://airapi.airly.eu/v2/measurements/installation?indexType=AIRLY_CAQI&installationId=8020"),
                 eq(GET),
                 any(HttpEntity.class),
                 eq(MeasurementForInstallationResponse.class)))
@@ -77,6 +80,8 @@ class MeasurementForInstallationServiceTest {
                 .indexType("AIRLY_CAQI")
                 .installationId(8020)
                 .build();
+
+        Mockito.when(dtoParser.toDto(any(MeasurementForInstallationResponse.class))).thenCallRealMethod();
 
         MeasurementForInstallationDto resultExpected = MeasurementForInstallationDto.builder().build();
         MeasurementForInstallationDto result = testBean.getMeasurementForInstallation(request);
@@ -89,7 +94,7 @@ class MeasurementForInstallationServiceTest {
         MeasurementForInstallationResponse measurementForInstallationResponse = new MeasurementForInstallationResponse();
 
         Mockito.when(restTemplate.exchange(
-                eq("https://airapi.airly.eu/v2/measurement/installation?indexType=AIRLY_CAQI&installationId=204"),
+                eq("https://airapi.airly.eu/v2/measurements/installation?indexType=AIRLY_CAQI&installationId=204"),
                 eq(GET),
                 any(HttpEntity.class),
                 eq(MeasurementForInstallationResponse.class)))
@@ -99,6 +104,8 @@ class MeasurementForInstallationServiceTest {
                 .indexType("AIRLY_CAQI")
                 .installationId(204)
                 .build();
+
+        Mockito.when(dtoParser.toDto(any(MeasurementForInstallationResponse.class))).thenCallRealMethod();
 
         MeasurementForInstallationDto resultExpected = MeasurementForInstallationDto.builder().build();
         MeasurementForInstallationDto result = testBean.getMeasurementForInstallation(request);

@@ -46,7 +46,7 @@ class MeasurementPointServiceTest {
         MeasurementPointResponse measurementPointResponse = new MeasurementPointResponse();
 
         Mockito.when(restTemplate.exchange(
-                eq("https://airapi.airly.eu/v2/measurement/point?indexType=AIRLY_CAQI&lat=50.062006&lng=19.940984"),
+                eq("https://airapi.airly.eu/v2/measurements/point?indexType=AIRLY_CAQ&lat=50.062006&lng=19.940984"),
                 eq(GET),
                 any(HttpEntity.class),
                 eq(MeasurementPointResponse.class)))

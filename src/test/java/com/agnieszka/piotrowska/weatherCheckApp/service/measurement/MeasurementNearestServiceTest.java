@@ -47,7 +47,7 @@ class MeasurementNearestServiceTest {
 
         MeasurementNearestResponse measurementNearestResponse = new MeasurementNearestResponse();
         Mockito.when(restTemplate.exchange(
-                eq("https://airapi.airly.eu/v2/measurement/nearest?indexType=AIRLY_CAQI&lat=50.062006&lng=19.940984&maxDistanceKM=3"),
+                eq("https://airapi.airly.eu/v2/measurements/nearest?indexType=AIRLY_CAQI&lat=50.062006&lng=19.940984&maxDistanceKM=3"),
                 eq(GET),
                 any(HttpEntity.class),
                 eq(MeasurementNearestResponse.class)))
@@ -71,7 +71,7 @@ class MeasurementNearestServiceTest {
 
         MeasurementNearestResponse measurementNearestResponse = new MeasurementNearestResponse();
         Mockito.when(restTemplate.exchange(
-                eq("https://airapi.airly.eu/v2/measurement/nearest?indexType=AIRLY_CAQI&lat=52.062006&lng=10.940984&maxDistanceKM=3"),
+                eq("https://airapi.airly.eu/v2/measurements/nearest?indexType=AIRLY_CAQI&lat=52.062006&lng=10.940984&maxDistanceKM=3"),
                 eq(GET),
                 any(HttpEntity.class),
                 eq(MeasurementNearestResponse.class)))

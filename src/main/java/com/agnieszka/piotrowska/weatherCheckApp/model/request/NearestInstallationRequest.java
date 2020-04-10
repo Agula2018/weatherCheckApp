@@ -9,7 +9,7 @@ public class NearestInstallationRequest {
 
     private double lat;
     private double lng;
-    private int maxDistanceKm;
+    private int maxDistanceKM;
     private int maxResults;
 
 }

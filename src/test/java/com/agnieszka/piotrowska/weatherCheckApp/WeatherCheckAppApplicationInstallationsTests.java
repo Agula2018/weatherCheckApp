@@ -1,12 +1,16 @@
 package com.agnieszka.piotrowska.weatherCheckApp;
 
 import com.agnieszka.piotrowska.weatherCheckApp.controller.InstallationsController;
+import com.agnieszka.piotrowska.weatherCheckApp.model.dto.NearestInstallationDto;
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.service.installation.InstallationsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -23,14 +27,20 @@ public class WeatherCheckAppApplicationInstallationsTests {
 
     @Autowired
     MockMvc mockMvc;
-    @Mock
-    RestTemplate restTemplate;
 
+    @MockBean
     private InstallationsService installationsService;
 
     @Test
     public void shouldReturnNearestInstallation() throws Exception {
-
+        Mockito.when(installationsService.getNearestInstallation(
+                NearestInstallationRequest.builder()
+                .lat(50.062006)
+                .lng(19.940984)
+                .maxDistanceKM(3)
+                .maxResults(1)
+                .build()
+        )).thenReturn(NearestInstallationDto.builder().build());
 
         MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get
                 ("http://localhost:8080/v2/installations/nearest" + buildSuccessfulNearestPath())
@@ -38,7 +48,7 @@ public class WeatherCheckAppApplicationInstallationsTests {
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
 
-        assertEquals("ok", mvcResult.getResponse().getContentAsString());
+        assertEquals(NearestInstallationDto.builder().build().toString(), mvcResult.getResponse().getContentAsString());
     }
 
     private String buildSuccessfulNearestPath() {

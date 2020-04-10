@@ -54,7 +54,7 @@ class NearestInstallationServiceTest {
         Mockito.when(dtoParser.toDto(any(NearestInstallationResponse.class))).thenReturn((NearestInstallationDto.builder().build()));
 
         NearestInstallationRequest request = NearestInstallationRequest.builder()
-                .lat(50.062006).lng(19.940984).maxDistanceKm(3).maxResults(1).build();
+                .lat(50.062006).lng(19.940984).maxDistanceKM(3).maxResults(1).build();
 
         NearestInstallationDto resultExpected = NearestInstallationDto.builder().build();
         NearestInstallationDto result = testBean.getNearestInstallation(request);

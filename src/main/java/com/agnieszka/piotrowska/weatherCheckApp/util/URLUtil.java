@@ -22,7 +22,7 @@ public class URLUtil {
                                     getKeyValuePair(fieldName, getFieldValue(requestObject, fieldName)) : getFieldValue(requestObject, fieldName)
                     );
                 }
-                return isQueryParam ? "?" : "" + paramsJoiner.toString();
+                return (isQueryParam ? "?" : "") + paramsJoiner.toString();
             } catch (IllegalAccessException | InvocationTargetException e) {
                 //EXCEPTION
                 return "";

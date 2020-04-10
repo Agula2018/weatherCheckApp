@@ -28,7 +28,7 @@ public class InstallationsController {
         NearestInstallationRequest request = NearestInstallationRequest.builder()
                 .lat(lat)
                 .lng(lng)
-                .maxDistanceKm(maxDistanceKM)
+                .maxDistanceKM(maxDistanceKM)
                 .maxResults(maxResults)
                 .build();
 
