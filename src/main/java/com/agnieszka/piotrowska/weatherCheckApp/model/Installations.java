@@ -1,17 +1,15 @@
 package com.agnieszka.piotrowska.weatherCheckApp.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.*;
+import lombok.Data;
 
-@JsonIgnoreProperties
 @Data
 public class Installations {
 
-    private Long id;
+    private Integer id;
     private Location location;
     private Address address;
     private Double elevation;
-    private Boolean airly;
+    private boolean airly;
     private Sponsor sponsor;
 
 

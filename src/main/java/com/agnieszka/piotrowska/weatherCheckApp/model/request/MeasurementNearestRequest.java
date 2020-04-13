@@ -8,7 +8,7 @@ import lombok.Data;
 public class MeasurementNearestRequest {
 
     private String indexType;
-    private double lat;
-    private double lng;
-    private int maxDistanceKM;
+    private Double lat;
+    private Double lng;
+    private Integer maxDistanceKM;
 }

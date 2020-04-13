@@ -8,10 +8,10 @@ import lombok.Data;
 @Data
 public class InstallationByIdResponse {
 
-    private int id;
+    private Integer id;
     private Location location;
     private Address address;
     private Double elevation;
-    private Boolean airly;
+    private boolean airly;
     private Sponsor sponsor;
 }

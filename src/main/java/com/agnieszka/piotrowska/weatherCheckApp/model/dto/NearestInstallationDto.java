@@ -10,10 +10,10 @@ import lombok.Data;
 @Builder(toBuilder = true)
 public class NearestInstallationDto {
 
-    private int id;
+    private Integer id;
     private Location location;
     private Address address;
     private Double elevation;
-    private Boolean airly;
+    private boolean airly;
     private Sponsor sponsor;
 }

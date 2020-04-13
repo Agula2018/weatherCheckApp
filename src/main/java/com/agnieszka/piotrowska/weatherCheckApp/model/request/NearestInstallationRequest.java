@@ -7,9 +7,9 @@ import lombok.Data;
 @Data
 public class NearestInstallationRequest {
 
-    private double lat;
-    private double lng;
-    private int maxDistanceKM;
-    private int maxResults;
+    private Double lat;
+    private Double lng;
+    private Integer maxDistanceKM;
+    private Integer maxResults;
 
 }

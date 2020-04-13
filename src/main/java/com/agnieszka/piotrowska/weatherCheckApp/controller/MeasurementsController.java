@@ -28,7 +28,7 @@ public class MeasurementsController {
 
     @GetMapping("installation")
     public MeasurementForInstallationDto measurementsForInstallation(@RequestParam("indexType") String indexType,
-                                              @RequestParam("installationId") int installationId) throws JsonParseException {
+                                                                     @RequestParam("installationId") int installationId) throws JsonParseException {
 
         MeasurementForInstallationRequest request = MeasurementForInstallationRequest.builder()
                 .indexType(indexType)
@@ -42,24 +42,24 @@ public class MeasurementsController {
 
     @GetMapping("nearest")
     public MeasurementNearestDto detailedMeasurementNearest(@RequestParam("indexType") String indexType,
-                                             @RequestParam("lat") double lat,
-                                             @RequestParam("lng") double lng,
-                                             @RequestParam("maxDistanceKM") int maxDistanceKM) throws JsonParseException {
+                                                            @RequestParam("lat") double lat,
+                                                            @RequestParam("lng") double lng,
+                                                            @RequestParam("maxDistanceKM") int maxDistanceKM) throws JsonParseException {
         MeasurementNearestRequest request = MeasurementNearestRequest.builder()
                 .indexType(indexType)
                 .lat(lat)
                 .lng(lng)
                 .maxDistanceKM(maxDistanceKM)
                 .build();
-        MeasurementNearestDto dto =measurementService.getMeasurementNearest(request);
+        MeasurementNearestDto dto = measurementService.getMeasurementNearest(request);
 
         return dto;
     }
 
     @GetMapping("point")
     public MeasurementPointDto detailedMeasurementPoint(@RequestParam("indexType") String indexType,
-                                           @RequestParam("lat") double lat,
-                                           @RequestParam("lng") double lng) throws JsonParseException {
+                                                        @RequestParam("lat") double lat,
+                                                        @RequestParam("lng") double lng) throws JsonParseException {
         MeasurementPointRequest request = MeasurementPointRequest.builder()
                 .indexType(indexType)
                 .lat(lat)

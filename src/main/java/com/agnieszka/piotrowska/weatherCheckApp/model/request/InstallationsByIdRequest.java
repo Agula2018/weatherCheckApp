@@ -7,5 +7,5 @@ import lombok.Data;
 @Data
 public class InstallationsByIdRequest {
 
-    private int installationId;
+    private Integer installationId;
 }

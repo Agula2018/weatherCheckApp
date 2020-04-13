@@ -1,12 +1,14 @@
 package com.agnieszka.piotrowska.weatherCheckApp;
 
 import com.agnieszka.piotrowska.weatherCheckApp.controller.InstallationsController;
+import com.agnieszka.piotrowska.weatherCheckApp.model.dto.InstallationsByIdDto;
 import com.agnieszka.piotrowska.weatherCheckApp.model.dto.NearestInstallationDto;
+import com.agnieszka.piotrowska.weatherCheckApp.model.request.InstallationsByIdRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.service.installation.InstallationsService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -16,7 +18,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.web.client.RestTemplate;
 
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -28,18 +29,22 @@ public class WeatherCheckAppApplicationInstallationsTests {
     @Autowired
     MockMvc mockMvc;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @MockBean
     private InstallationsService installationsService;
 
     @Test
     public void shouldReturnNearestInstallation() throws Exception {
+
         Mockito.when(installationsService.getNearestInstallation(
                 NearestInstallationRequest.builder()
-                .lat(50.062006)
-                .lng(19.940984)
-                .maxDistanceKM(3)
-                .maxResults(1)
-                .build()
+                        .lat(50.062006)
+                        .lng(19.940984)
+                        .maxDistanceKM(3)
+                        .maxResults(1)
+                        .build()
         )).thenReturn(NearestInstallationDto.builder().build());
 
         MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get
@@ -48,7 +53,11 @@ public class WeatherCheckAppApplicationInstallationsTests {
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
 
-        assertEquals(NearestInstallationDto.builder().build().toString(), mvcResult.getResponse().getContentAsString());
+        String json = mvcResult.getResponse().getContentAsString();
+//        NearestInstallationDto jsonDTO = objectMapper.readValues(json, NearestInstallationDto.class);
+//        Object jsonDTO = objectMapper.readValues(json, Object.class);
+
+        assertEquals(NearestInstallationDto.builder().build().toString(), json);
     }
 
     private String buildSuccessfulNearestPath() {
@@ -56,14 +65,20 @@ public class WeatherCheckAppApplicationInstallationsTests {
     }
 
     @Test
-    public void shouldReturnInstallationId() throws Exception{
+    public void shouldReturnInstallationId() throws Exception {
+        Mockito.when(installationsService.getInstallationsByIdDto
+                (InstallationsByIdRequest.builder()
+                        .installationId(8077)
+                        .build()))
+                .thenReturn(InstallationsByIdDto.builder().build());
+
         MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get
                 ("http://localhost:8080/v2/installations/" + buildSuccessfulInstallationId())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
 
-        assertEquals("ok", mvcResult.getResponse().getContentAsString());
+        assertEquals(InstallationsByIdDto.builder().build().toString(), mvcResult.getResponse().getContentAsString());
     }
 
     private String buildSuccessfulInstallationId() {

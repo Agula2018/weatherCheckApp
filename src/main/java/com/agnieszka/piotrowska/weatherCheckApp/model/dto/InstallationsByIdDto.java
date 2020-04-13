@@ -10,10 +10,10 @@ import lombok.Data;
 @Builder(toBuilder = true)
 public class InstallationsByIdDto {
 
-    private int installationId;
+    private Integer installationId;
     private Location location;
     private Address address;
     private Double elevation;
-    private Boolean airly;
+    private boolean airly;
     private Sponsor sponsor;
 }

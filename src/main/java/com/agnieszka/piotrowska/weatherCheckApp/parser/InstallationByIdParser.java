@@ -11,11 +11,8 @@ public class InstallationByIdParser implements Parser<InstallationByIdResponse, 
     public InstallationsByIdDto toDto(InstallationByIdResponse installationByIdResponse) {
         return InstallationsByIdDto.builder()
                 .installationId(installationByIdResponse.getId())
-                .address(installationByIdResponse.getAddress())
-                .airly(installationByIdResponse.getAirly())
-                .elevation(installationByIdResponse.getElevation())
                 .location(installationByIdResponse.getLocation())
-                .sponsor(installationByIdResponse.getSponsor())
+                .address(installationByIdResponse.getAddress())
                 .build();
     }
 }

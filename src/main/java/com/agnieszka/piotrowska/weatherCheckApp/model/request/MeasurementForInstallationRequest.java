@@ -8,6 +8,6 @@ import lombok.Data;
 public class MeasurementForInstallationRequest {
 
     private String indexType;
-    private int installationId;
+    private Integer installationId;
 
 }

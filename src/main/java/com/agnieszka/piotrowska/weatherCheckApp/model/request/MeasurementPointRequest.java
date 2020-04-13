@@ -8,6 +8,6 @@ import lombok.Data;
 public class MeasurementPointRequest {
 
     private String indexType;
-    private double lat;
-    private double lng;
+    private Double lat;
+    private Double lng;
 }
