@@ -7,6 +7,8 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallatio
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class InstallationsService {
 
@@ -20,7 +22,7 @@ public class InstallationsService {
         this.installationsByIdService = installationsByIdService;
     }
 
-    public NearestInstallationDto getNearestInstallation(NearestInstallationRequest request){
+    public List<NearestInstallationDto> getNearestInstallation(NearestInstallationRequest request){
         return nearestInstallationService.getNearestInstallation(request);
     }
 

@@ -4,7 +4,7 @@ import lombok.Data;
 @Data
 public class Sponsor {
 
-    private long sponsorId;
+    private long id;
     private String name;
     private String description;
     private String logo;

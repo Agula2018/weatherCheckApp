@@ -5,6 +5,7 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallatio
 import com.agnieszka.piotrowska.weatherCheckApp.model.response.NearestInstallationResponse;
 import com.agnieszka.piotrowska.weatherCheckApp.parser.NearestInstallationParser;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -18,6 +19,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.springframework.http.HttpMethod.GET;
@@ -51,13 +55,13 @@ class NearestInstallationServiceTest {
                 eq(NearestInstallationResponse.class)))
                 .thenReturn(new ResponseEntity<>(nearestInstallationResponse, HttpStatus.OK));
 
-        Mockito.when(dtoParser.toDto(any(NearestInstallationResponse.class))).thenReturn((NearestInstallationDto.builder().build()));
+        Mockito.when(dtoParser.toDto(any(NearestInstallationResponse[].class))).thenReturn((List.of(NearestInstallationDto.builder().build())));
 
         NearestInstallationRequest request = NearestInstallationRequest.builder()
                 .lat(50.062006).lng(19.940984).maxDistanceKM(3).maxResults(1).build();
 
-        NearestInstallationDto resultExpected = NearestInstallationDto.builder().build();
-        NearestInstallationDto result = testBean.getNearestInstallation(request);
+        List<NearestInstallationDto> resultExpected = List.of(NearestInstallationDto.builder().build());
+        List<NearestInstallationDto> result = testBean.getNearestInstallation(request);
 
         Assert.assertEquals(resultExpected, result);
 

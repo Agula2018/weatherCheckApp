@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("v2/installations/")
 public class InstallationsController {
@@ -21,7 +23,7 @@ public class InstallationsController {
     }
 
     @GetMapping("nearest")
-    public NearestInstallationDto handleNearestInstallation(@RequestParam("lat") double lat,
+    public List<NearestInstallationDto> handleNearestInstallation(@RequestParam("lat") double lat,
                                                             @RequestParam("lng") double lng,
                                                             @RequestParam("maxDistanceKM") int maxDistanceKM,
                                                             @RequestParam("maxResults") int maxResults) throws JsonParseException {
@@ -32,7 +34,7 @@ public class InstallationsController {
                 .maxResults(maxResults)
                 .build();
 
-        NearestInstallationDto dto = installationsService.getNearestInstallation(request);
+        List<NearestInstallationDto> dto = installationsService.getNearestInstallation(request);
         return dto;
     }
 

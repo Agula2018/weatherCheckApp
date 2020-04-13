@@ -11,25 +11,27 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 public class NearestInstallationService extends AbstractExternalAPIService<NearestInstallationRequest> {
 
     private static final String DOMAIN_PATH = "installations/nearest";
-    private Parser<NearestInstallationResponse, NearestInstallationDto> dtoParser;
+    private Parser<NearestInstallationResponse[], List<NearestInstallationDto>> dtoParser;
 
     @Autowired
     public NearestInstallationService(RestTemplate restTemplate,
-                                      @Qualifier("nearestInstallationParser") Parser <NearestInstallationResponse,
-                                              NearestInstallationDto> dtoParser) {
+                                      @Qualifier("nearestInstallationParser") Parser <NearestInstallationResponse[],
+                                              List<NearestInstallationDto>> dtoParser) {
         super(restTemplate);
         this.dtoParser = dtoParser;
     }
 
-    NearestInstallationDto getNearestInstallation(NearestInstallationRequest request){
-        RequestForExternalAPI<NearestInstallationRequest, NearestInstallationResponse> requestObject =
-                RequestForExternalAPI.<NearestInstallationRequest, NearestInstallationResponse>builder()
+    List<NearestInstallationDto> getNearestInstallation(NearestInstallationRequest request){
+        RequestForExternalAPI<NearestInstallationRequest, NearestInstallationResponse[]> requestObject =
+                RequestForExternalAPI.<NearestInstallationRequest, NearestInstallationResponse[]>builder()
                         .requestObject(request)
-                        .responseClass(NearestInstallationResponse.class)
+                        .responseClass(NearestInstallationResponse[].class)
                         .isQueryParam(true)
                         .build();
        return dtoParser.toDto(getFromRequest(requestObject));
