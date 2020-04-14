@@ -21,20 +21,20 @@ public class NearestInstallationService extends AbstractExternalAPIService<Neare
 
     @Autowired
     public NearestInstallationService(RestTemplate restTemplate,
-                                      @Qualifier("nearestInstallationParser") Parser <NearestInstallationResponse[],
+                                      @Qualifier("nearestInstallationParser") Parser<NearestInstallationResponse[],
                                               List<NearestInstallationDto>> dtoParser) {
         super(restTemplate);
         this.dtoParser = dtoParser;
     }
 
-    List<NearestInstallationDto> getNearestInstallation(NearestInstallationRequest request){
+    List<NearestInstallationDto> getNearestInstallation(NearestInstallationRequest request) {
         RequestForExternalAPI<NearestInstallationRequest, NearestInstallationResponse[]> requestObject =
                 RequestForExternalAPI.<NearestInstallationRequest, NearestInstallationResponse[]>builder()
                         .requestObject(request)
                         .responseClass(NearestInstallationResponse[].class)
                         .isQueryParam(true)
                         .build();
-       return dtoParser.toDto(getFromRequest(requestObject));
+        return dtoParser.toDto(getFromRequest(requestObject));
     }
 
     @Override

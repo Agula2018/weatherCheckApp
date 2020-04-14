@@ -11,25 +11,27 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 public class MeasurementNearestService extends AbstractExternalAPIService <MeasurementNearestRequest> {
 
     private static final String DOMAIN_PATH = "measurements/nearest";
-    private Parser <MeasurementNearestResponse, MeasurementNearestDto> dtoParser;
+    private Parser <MeasurementNearestResponse [], List<MeasurementNearestDto>> dtoParser;
 
     @Autowired
     public MeasurementNearestService(RestTemplate restTemplate,
                                      @Qualifier("measurementNearestParser")
-                                     Parser<MeasurementNearestResponse, MeasurementNearestDto> dtoParser) {
+                                     Parser<MeasurementNearestResponse[], List<MeasurementNearestDto>> dtoParser) {
         super(restTemplate);
         this.dtoParser = dtoParser;
     }
 
-    MeasurementNearestDto getMeasurementNearest(MeasurementNearestRequest request){
-        RequestForExternalAPI<MeasurementNearestRequest, MeasurementNearestResponse> requestObject =
-                RequestForExternalAPI.<MeasurementNearestRequest, MeasurementNearestResponse>builder()
+    List<MeasurementNearestDto> getMeasurementNearest(MeasurementNearestRequest request){
+        RequestForExternalAPI<MeasurementNearestRequest, MeasurementNearestResponse[]> requestObject =
+                RequestForExternalAPI.<MeasurementNearestRequest, MeasurementNearestResponse[]>builder()
                         .requestObject(request)
-                        .responseClass(MeasurementNearestResponse.class)
+                        .responseClass(MeasurementNearestResponse[].class)
                         .isQueryParam(true)
                         .build();
         return dtoParser.toDto(getFromRequest(requestObject));

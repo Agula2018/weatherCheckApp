@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("v2/measurements/")
 public class MeasurementsController {
@@ -27,46 +29,46 @@ public class MeasurementsController {
 
 
     @GetMapping("installation")
-    public MeasurementForInstallationDto measurementsForInstallation(@RequestParam("indexType") String indexType,
-                                                                     @RequestParam("installationId") int installationId) throws JsonParseException {
+    public List<MeasurementForInstallationDto> measurementsForInstallation(@RequestParam("indexType") String indexType,
+                                                                           @RequestParam("installationId") int installationId) throws JsonParseException {
 
         MeasurementForInstallationRequest request = MeasurementForInstallationRequest.builder()
                 .indexType(indexType)
                 .installationId(installationId)
                 .build();
 
-        MeasurementForInstallationDto dto = measurementService.getMeasurementForInstallation(request);
+        List<MeasurementForInstallationDto> dto = measurementService.getMeasurementForInstallation(request);
 
         return dto;
     }
 
     @GetMapping("nearest")
-    public MeasurementNearestDto detailedMeasurementNearest(@RequestParam("indexType") String indexType,
-                                                            @RequestParam("lat") double lat,
-                                                            @RequestParam("lng") double lng,
-                                                            @RequestParam("maxDistanceKM") int maxDistanceKM) throws JsonParseException {
+    public List<MeasurementNearestDto> detailedMeasurementNearest(@RequestParam("indexType") String indexType,
+                                                                  @RequestParam("lat") double lat,
+                                                                  @RequestParam("lng") double lng,
+                                                                  @RequestParam("maxDistanceKM") int maxDistanceKM) throws JsonParseException {
         MeasurementNearestRequest request = MeasurementNearestRequest.builder()
                 .indexType(indexType)
                 .lat(lat)
                 .lng(lng)
                 .maxDistanceKM(maxDistanceKM)
                 .build();
-        MeasurementNearestDto dto = measurementService.getMeasurementNearest(request);
+        List<MeasurementNearestDto> dto = measurementService.getMeasurementNearest(request);
 
         return dto;
     }
 
     @GetMapping("point")
-    public MeasurementPointDto detailedMeasurementPoint(@RequestParam("indexType") String indexType,
-                                                        @RequestParam("lat") double lat,
-                                                        @RequestParam("lng") double lng) throws JsonParseException {
+    public List<MeasurementPointDto> detailedMeasurementPoint(@RequestParam("indexType") String indexType,
+                                                              @RequestParam("lat") double lat,
+                                                              @RequestParam("lng") double lng) throws JsonParseException {
         MeasurementPointRequest request = MeasurementPointRequest.builder()
                 .indexType(indexType)
                 .lat(lat)
                 .lng(lng)
                 .build();
 
-        MeasurementPointDto dto = measurementService.getMeasurementPoint(request);
+        List<MeasurementPointDto> dto = measurementService.getMeasurementPoint(request);
         return dto;
     }
 }

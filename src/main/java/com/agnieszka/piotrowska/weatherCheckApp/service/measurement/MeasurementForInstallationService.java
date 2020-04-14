@@ -11,26 +11,28 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 public class MeasurementForInstallationService extends AbstractExternalAPIService<MeasurementForInstallationRequest> {
 
     private static final String DOMAIN_PATH = "measurements/installation";
-    private Parser <MeasurementForInstallationResponse, MeasurementForInstallationDto> dtoParser;
+    private Parser <MeasurementForInstallationResponse[], List<MeasurementForInstallationDto>> dtoParser;
 
     @Autowired
     public MeasurementForInstallationService(RestTemplate restTemplate,
                                              @Qualifier ("measurementForInstallationParser")
-                                                         Parser <MeasurementForInstallationResponse,
-                                                                 MeasurementForInstallationDto> dtoParser) {
+                                                         Parser <MeasurementForInstallationResponse[],
+                                                                 List<MeasurementForInstallationDto>> dtoParser) {
         super(restTemplate);
         this.dtoParser = dtoParser;
     }
 
-    MeasurementForInstallationDto getMeasurementForInstallation (MeasurementForInstallationRequest request){
-        RequestForExternalAPI<MeasurementForInstallationRequest, MeasurementForInstallationResponse> requestObject =
-                RequestForExternalAPI.<MeasurementForInstallationRequest, MeasurementForInstallationResponse>builder()
+    List<MeasurementForInstallationDto> getMeasurementForInstallation (MeasurementForInstallationRequest request){
+        RequestForExternalAPI<MeasurementForInstallationRequest, MeasurementForInstallationResponse[]> requestObject =
+                RequestForExternalAPI.<MeasurementForInstallationRequest, MeasurementForInstallationResponse[]>builder()
                         .requestObject(request)
-                        .responseClass(MeasurementForInstallationResponse.class)
+                        .responseClass(MeasurementForInstallationResponse[].class)
                         .isQueryParam(true)
                         .build();
        return dtoParser.toDto(getFromRequest(requestObject));

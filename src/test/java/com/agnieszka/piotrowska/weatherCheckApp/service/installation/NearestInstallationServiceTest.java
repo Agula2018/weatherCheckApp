@@ -5,7 +5,6 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallatio
 import com.agnieszka.piotrowska.weatherCheckApp.model.response.NearestInstallationResponse;
 import com.agnieszka.piotrowska.weatherCheckApp.parser.NearestInstallationParser;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -40,8 +39,8 @@ class NearestInstallationServiceTest {
     private InstallationsService testBean;
 
     @Autowired
-    public void init(){
-        testBean = new InstallationsService(new NearestInstallationService(restTemplate, dtoParser),null);
+    public void init() {
+        testBean = new InstallationsService(new NearestInstallationService(restTemplate, dtoParser), null);
     }
 
     @Test
@@ -50,9 +49,9 @@ class NearestInstallationServiceTest {
 
         Mockito.when(restTemplate.exchange
                 (eq("https://airapi.airly.eu/v2/installations/nearest?lat=50.062006&lng=19.940984&maxDistanceKM=3&maxResults=1"),
-                eq(GET),
-                any(HttpEntity.class),
-                eq(NearestInstallationResponse.class)))
+                        eq(GET),
+                        any(HttpEntity.class),
+                        eq(NearestInstallationResponse.class)))
                 .thenReturn(new ResponseEntity<>(nearestInstallationResponse, HttpStatus.OK));
 
         Mockito.when(dtoParser.toDto(any(NearestInstallationResponse[].class))).thenReturn((List.of(NearestInstallationDto.builder().build())));

@@ -8,7 +8,6 @@ import com.agnieszka.piotrowska.weatherCheckApp.service.installation.Installatio
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -24,9 +23,9 @@ public class InstallationsController {
 
     @GetMapping("nearest")
     public List<NearestInstallationDto> handleNearestInstallation(@RequestParam("lat") double lat,
-                                                            @RequestParam("lng") double lng,
-                                                            @RequestParam("maxDistanceKM") int maxDistanceKM,
-                                                            @RequestParam("maxResults") int maxResults) throws JsonParseException {
+                                                                  @RequestParam("lng") double lng,
+                                                                  @RequestParam("maxDistanceKM") int maxDistanceKM,
+                                                                  @RequestParam("maxResults") int maxResults) throws JsonParseException {
         NearestInstallationRequest request = NearestInstallationRequest.builder()
                 .lat(lat)
                 .lng(lng)

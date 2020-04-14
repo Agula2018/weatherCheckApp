@@ -9,6 +9,8 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementPointRe
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MeasurementService{
 
@@ -26,15 +28,14 @@ public class MeasurementService{
     }
 
 
-    public MeasurementForInstallationDto getMeasurementForInstallation(MeasurementForInstallationRequest request){
+    public List<MeasurementForInstallationDto> getMeasurementForInstallation(MeasurementForInstallationRequest request){
         return measurementForInstallationService.getMeasurementForInstallation(request);
     }
 
-    public MeasurementNearestDto getMeasurementNearest(MeasurementNearestRequest request){
+    public List<MeasurementNearestDto> getMeasurementNearest(MeasurementNearestRequest request){
         return measurementNearestService.getMeasurementNearest(request);
     }
-    public MeasurementPointDto getMeasurementPoint(MeasurementPointRequest request){
+    public List <MeasurementPointDto> getMeasurementPoint(MeasurementPointRequest request){
         return measurementPointService.getMeasurementPoint(request);
     }
-
 }

@@ -4,7 +4,6 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.dto.MeasurementForInstalla
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.MeasurementForInstallationRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.response.MeasurementForInstallationResponse;
 import com.agnieszka.piotrowska.weatherCheckApp.parser.MeasurementForInstallationParser;
-import com.agnieszka.piotrowska.weatherCheckApp.parser.Parser;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -14,13 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
-
-import static org.springframework.http.HttpMethod.GET;
+import java.util.List;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.springframework.http.HttpMethod.GET;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(MeasurementForInstallationService.class)
@@ -57,10 +58,10 @@ class MeasurementForInstallationServiceTest {
                 .installationId(8077)
                 .build();
 
-        Mockito.when(dtoParser.toDto(any(MeasurementForInstallationResponse.class))).thenCallRealMethod();
+        Mockito.when(dtoParser.toDto(any(MeasurementForInstallationResponse[].class))).thenCallRealMethod();
 
-        MeasurementForInstallationDto resultExpected = MeasurementForInstallationDto.builder().build();
-        MeasurementForInstallationDto result = testBean.getMeasurementForInstallation(request);
+        List<MeasurementForInstallationDto> resultExpected = List.of(MeasurementForInstallationDto.builder().build());
+        List<MeasurementForInstallationDto> result = testBean.getMeasurementForInstallation(request);
 
         Assert.assertEquals(resultExpected, result);
     }
@@ -81,10 +82,10 @@ class MeasurementForInstallationServiceTest {
                 .installationId(8020)
                 .build();
 
-        Mockito.when(dtoParser.toDto(any(MeasurementForInstallationResponse.class))).thenCallRealMethod();
+        Mockito.when(dtoParser.toDto(any(MeasurementForInstallationResponse[].class))).thenCallRealMethod();
 
-        MeasurementForInstallationDto resultExpected = MeasurementForInstallationDto.builder().build();
-        MeasurementForInstallationDto result = testBean.getMeasurementForInstallation(request);
+        List<MeasurementForInstallationDto> resultExpected = List.of(MeasurementForInstallationDto.builder().build());
+        List<MeasurementForInstallationDto> result = testBean.getMeasurementForInstallation(request);
 
         Assert.assertEquals(resultExpected, result);
     }
@@ -105,10 +106,10 @@ class MeasurementForInstallationServiceTest {
                 .installationId(204)
                 .build();
 
-        Mockito.when(dtoParser.toDto(any(MeasurementForInstallationResponse.class))).thenCallRealMethod();
+        Mockito.when(dtoParser.toDto(any(MeasurementForInstallationResponse[].class))).thenCallRealMethod();
 
-        MeasurementForInstallationDto resultExpected = MeasurementForInstallationDto.builder().build();
-        MeasurementForInstallationDto result = testBean.getMeasurementForInstallation(request);
+        List<MeasurementForInstallationDto> resultExpected = List.of(MeasurementForInstallationDto.builder().build());
+        List<MeasurementForInstallationDto> result = testBean.getMeasurementForInstallation(request);
 
         Assert.assertEquals(resultExpected, result);
     }

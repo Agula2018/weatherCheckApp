@@ -18,7 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
-
+import java.util.List;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.springframework.http.HttpMethod.GET;
@@ -53,8 +53,8 @@ class MeasurementNearestServiceTest {
                 eq(MeasurementNearestResponse.class)))
                 .thenReturn(new ResponseEntity<>(measurementNearestResponse, HttpStatus.OK));
 
-        Mockito.when(dtoParser.toDto(any(MeasurementNearestResponse.class)))
-                .thenReturn(MeasurementNearestDto.builder().build());
+       Mockito.when(dtoParser.toDto(any(MeasurementNearestResponse[].class)))
+               .thenReturn((List.of(MeasurementNearestDto.builder().build())));
 
         MeasurementNearestRequest request = MeasurementNearestRequest.builder()
                 .indexType("AIRLY_CAQI")
@@ -62,8 +62,8 @@ class MeasurementNearestServiceTest {
                 .lng(19.940984)
                 .maxDistanceKM(3)
                 .build();
-        MeasurementNearestDto resultExpected = MeasurementNearestDto.builder().build();
-        MeasurementNearestDto result = testBean.getMeasurementNearest(request);
+        List<MeasurementNearestDto> resultExpected = List.of(MeasurementNearestDto.builder().build());
+        List<MeasurementNearestDto> result = testBean.getMeasurementNearest(request);
         Assert.assertEquals(resultExpected, result);
     }
     @Test
@@ -76,7 +76,7 @@ class MeasurementNearestServiceTest {
                 any(HttpEntity.class),
                 eq(MeasurementNearestResponse.class)))
                 .thenReturn(new ResponseEntity<>(measurementNearestResponse, HttpStatus.NOT_FOUND));
-      Mockito.when(dtoParser.toDto(any(MeasurementNearestResponse.class))).thenReturn(MeasurementNearestDto.builder().build());
+      Mockito.when(dtoParser.toDto(any(MeasurementNearestResponse[].class))).thenReturn((List.of(MeasurementNearestDto.builder().build())));
 
         MeasurementNearestRequest request = MeasurementNearestRequest.builder()
                 .indexType("AIRLY_CAQI")
@@ -84,8 +84,8 @@ class MeasurementNearestServiceTest {
                 .lng(10.940984)
                 .maxDistanceKM(3)
                 .build();
-        MeasurementNearestDto resultExpected = MeasurementNearestDto.builder().build();
-        MeasurementNearestDto result = testBean.getMeasurementNearest(request);
+        List<MeasurementNearestDto> resultExpected = List.of(MeasurementNearestDto.builder().build());
+        List<MeasurementNearestDto> result = testBean.getMeasurementNearest(request);
         Assert.assertEquals(resultExpected, result);
     }
 }

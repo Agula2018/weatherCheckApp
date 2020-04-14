@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
+import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -45,7 +45,7 @@ public class WeatherCheckAppApplicationMeasurementsTests {
                         .indexType("AIRLY_CAQI")
                         .installationId(8077)
                         .build()))
-                .thenReturn(MeasurementForInstallationDto.builder().build());
+                .thenReturn(List.of(MeasurementForInstallationDto.builder().build()));
 
 
         MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get
@@ -55,7 +55,10 @@ public class WeatherCheckAppApplicationMeasurementsTests {
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
 
-        assertEquals(MeasurementForInstallationDto.builder().build().toString(), mvcResult.getResponse().getContentAsString());
+        String json = mvcResult.getResponse().getContentAsString();
+        String expectedJson = objectMapper.writeValueAsString(List.of(MeasurementForInstallationDto.builder().build()));
+
+        assertEquals(expectedJson, json);
     }
 
     private String buildSuccessfulDetailedMeasurement() {
@@ -71,7 +74,7 @@ public class WeatherCheckAppApplicationMeasurementsTests {
                         .lng(19.940984)
                         .maxDistanceKM(3)
                         .build()))
-                .thenReturn(MeasurementNearestDto.builder().build());
+                .thenReturn(List.of(MeasurementNearestDto.builder().build()));
 
         MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get
                 ("http://localhost:8080/v2/measurements/nearest" +
@@ -80,7 +83,10 @@ public class WeatherCheckAppApplicationMeasurementsTests {
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
 
-        assertEquals(MeasurementNearestDto.builder().build(), mvcResult.getResponse().getContentAsString());
+        String json = mvcResult.getResponse().getContentAsString();
+        String jsonExpected = objectMapper.writeValueAsString(List.of(MeasurementNearestDto.builder().build()));
+
+        assertEquals(jsonExpected,json);
     }
 
     private String buildSuccessfulNearestMeasurementPath() {
@@ -92,19 +98,21 @@ public class WeatherCheckAppApplicationMeasurementsTests {
 
         Mockito.when(measurementService.getMeasurementPoint(
                 MeasurementPointRequest.builder()
-                .indexType("AIRLY_CAQI")
-                .lat(50.062006)
-                .lng(19.940984)
-                .build()))
-                .thenReturn(MeasurementPointDto.builder().build());
+                        .indexType("AIRLY_CAQI")
+                        .lat(50.062006)
+                        .lng(19.940984)
+                        .build()))
+                .thenReturn(List.of(MeasurementPointDto.builder().build()));
 
         MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get("http://localhost:8080/v2/measurements/point" +
                 buildSuccessfulMeasurementPoint())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
+        String json = mvcResult.getResponse().getContentAsString();
+        String jsonExpected = objectMapper.writeValueAsString(List.of(MeasurementPointDto.builder().build()));
 
-        assertEquals(MeasurementPointDto.builder().build().toString(), mvcResult.getResponse().getContentAsString());
+        assertEquals(jsonExpected, json);
     }
 
     private String buildSuccessfulMeasurementPoint() {

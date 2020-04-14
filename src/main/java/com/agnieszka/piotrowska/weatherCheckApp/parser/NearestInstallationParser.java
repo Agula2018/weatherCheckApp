@@ -3,7 +3,6 @@ package com.agnieszka.piotrowska.weatherCheckApp.parser;
 import com.agnieszka.piotrowska.weatherCheckApp.model.dto.NearestInstallationDto;
 import com.agnieszka.piotrowska.weatherCheckApp.model.response.NearestInstallationResponse;
 import org.springframework.stereotype.Service;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

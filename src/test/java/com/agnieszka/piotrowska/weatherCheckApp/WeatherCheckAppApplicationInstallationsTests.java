@@ -5,10 +5,8 @@ import com.agnieszka.piotrowska.weatherCheckApp.model.dto.InstallationsByIdDto;
 import com.agnieszka.piotrowska.weatherCheckApp.model.dto.NearestInstallationDto;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.InstallationsByIdRequest;
 import com.agnieszka.piotrowska.weatherCheckApp.model.request.NearestInstallationRequest;
-import com.agnieszka.piotrowska.weatherCheckApp.model.response.NearestInstallationResponse;
 import com.agnieszka.piotrowska.weatherCheckApp.service.installation.InstallationsService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -20,15 +18,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
 import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(InstallationsController.class)
-@Ignore
+
 public class WeatherCheckAppApplicationInstallationsTests {
 
     @Autowired
@@ -83,9 +79,11 @@ public class WeatherCheckAppApplicationInstallationsTests {
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
 
-        assertEquals(InstallationsByIdDto.builder().build().toString(), mvcResult.getResponse().getContentAsString());
-    }
+        String json = mvcResult.getResponse().getContentAsString();
+        String jsonExpected = objectMapper.writeValueAsString(InstallationsByIdDto.builder().build());
 
+        assertEquals(jsonExpected, json);
+    }
     private String buildSuccessfulInstallationId() {
         return "8077";
     }

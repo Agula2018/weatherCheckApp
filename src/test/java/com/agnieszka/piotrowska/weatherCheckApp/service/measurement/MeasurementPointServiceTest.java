@@ -18,6 +18,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.springframework.http.HttpMethod.GET;
@@ -52,15 +55,15 @@ class MeasurementPointServiceTest {
                 eq(MeasurementPointResponse.class)))
                 .thenReturn(new ResponseEntity<>(measurementPointResponse, HttpStatus.OK));
 
-        Mockito.when(dtoParser.toDto(any(MeasurementPointResponse.class))).thenReturn(MeasurementPointDto.builder().build());
+        Mockito.when(dtoParser.toDto(any(MeasurementPointResponse[].class))).thenReturn(List.of(MeasurementPointDto.builder().build()));
 
         MeasurementPointRequest request = MeasurementPointRequest.builder()
                 .indexType("AIRLY_CAQ")
                 .lat(50.062006)
                 .lng(19.940984)
                 .build();
-        MeasurementPointDto resultExpected = MeasurementPointDto.builder().build();
-        MeasurementPointDto result = testBean.getMeasurementPoint(request);
+        List<MeasurementPointDto> resultExpected = List.of(MeasurementPointDto.builder().build());
+        List<MeasurementPointDto> result = testBean.getMeasurementPoint(request);
 
         Assert.assertEquals(resultExpected, result);
     }
