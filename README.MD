@@ -28,7 +28,7 @@ This app applies to Airly API version 2.0.
 ## Code Examples
 Examples of usage:
 
-![Example screenshot](./screenshot.png)
+![Example screenshot](./code.png)
 ```
 {
 
