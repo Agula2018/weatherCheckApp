@@ -26,7 +26,7 @@ This app applies to Airly API version 2.0.
 
 
 ## Code Examples
-Examples of usage:
+Examples of usage controllers:
 
 ![Example screenshot](./code.png)
 ```
