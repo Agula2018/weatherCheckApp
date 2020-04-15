@@ -16,13 +16,19 @@ This app applies to Airly API version 2.0.
 ![Example screenshot](./screenshot.png)
 
 ## Technologies
-* JAVA - version 11
+* JAVA - version 8
 * Spring Boot - version 2.5.0
-* Hibernate - version 6.0.16
+* Spring MVC 
+* Spring ReST
+* HTTP protocol
+* Spring ReST
+
 
 
 ## Code Examples
-Show examples of usage:
+Examples of usage:
+
+![Example screenshot](./screenshot.png)
 ```
 {
 
@@ -32,13 +38,13 @@ COMMING SOON
 ```
 
 ## Features
-List of features ready and TODOs for future development
-* TEST 
-
+List of features ready:
+* TEST Junit
+* TEST Mockito
 
 
 To-do list:
-* make a database 
+* For future development create a database 
 
 ## Status
 Project is: 
