@@ -17,7 +17,7 @@ WeatherCheckApp interact with Airly API from a client-side web applications serv
 App interact with Airly API endpoints which return content in JSON format (including errors) which are mapped to JAVA object. App return mapped endpoints: Installations and Measurements.
 
 ## 
-![Example screenshot](./screenshot.png)
+![Example screenshot](./readme/screenshot.png)
 
 ## Technologies
 * JAVA - version 8
@@ -32,11 +32,11 @@ App interact with Airly API endpoints which return content in JSON format (inclu
 ## Code Examples
 Example of usage controllers:
 
-![Example screenshot](./code.png)
+![Example screenshot](./readme/code.png)
 
 Example of console output:
 
-![Example screenshot](./output.png)
+![Example screenshot](./readme/output.png)
 
 ## Features
 List of features ready:
