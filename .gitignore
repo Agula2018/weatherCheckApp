@@ -36,3 +36,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+screenshot.png
+strings.xml
+mvnw
+mvnw.cmd
+HELP.md
