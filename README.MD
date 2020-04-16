@@ -36,7 +36,7 @@ Example of usage controllers:
 
 Example of console output:
 
-![Example screenshot](./code.png)
+![Example screenshot](./output.png)
 
 ## Features
 List of features ready:
